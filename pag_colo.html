@@ -7,51 +7,73 @@
     <title>Nadia Szachniuk</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --main-bg: linear-gradient(135deg, #181824 0%, #23233a 100%);
+            --container-bg: #101018;
+            --primary: #a5b4fc;
+            --accent: #818cf8;
+            --text: #f5f6fa;
+            --text-light: #e0e2e6;
+            --border: #23233a;
+            --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+        }
+
         body {
             font-family: 'Montserrat', Arial, sans-serif;
-            background: linear-gradient(135deg, #181824 0%, #23233a 100%);
+            background: var(--main-bg);
             margin: 0;
             padding: 0;
-            color: #f5f6fa;
+            color: var(--text);
         }
 
         .container {
             max-width: 800px;
             margin: 40px auto;
-            background: #000000;
-            border-radius: 16px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
-            padding: 32px;
+            background: var(--container-bg);
+            border-radius: 18px;
+            box-shadow: var(--shadow);
+            padding: 32px 18px;
         }
 
         .profile-img {
             width: 100%;
-            max-width: 480px;
+            max-width: 520px;
             height: auto;
             object-fit: cover;
-            border-radius: 16px;
+            border-radius: 18px;
             box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
             display: block;
-            margin: 0 auto 32px auto;
+            margin: 0 auto 36px auto;
+            transition: box-shadow 0.3s;
+        }
+
+        .profile-img:hover {
+            box-shadow: 0 8px 32px rgba(129, 140, 248, 0.18);
+        }
+
+        h1,
+        h2,
+        h3 {
+            text-align: center;
         }
 
         h1 {
-            text-align: center;
             font-size: 2.8rem;
             margin-bottom: 8px;
-            color: #f3f4f6;
+            color: var(--text);
         }
 
         h2 {
-            text-align: center;
             font-size: 1.3rem;
             font-weight: 400;
-            color: #a5b4fc;
+            color: var(--primary);
             margin-bottom: 24px;
         }
 
         h3 {
-            color: #a5b4fc !important;
+            color: var(--primary) !important;
+            font-size: 1.2rem;
+            margin-bottom: 18px;
         }
 
         p,
@@ -59,7 +81,7 @@
         label,
         input,
         textarea {
-            color: #f5f6fa;
+            color: var(--text);
         }
 
         p {
@@ -75,10 +97,11 @@
 
         .links {
             text-align: center;
+            margin-top: 18px;
         }
 
         .links a {
-            color: #818cf8;
+            color: var(--accent);
             text-decoration: none;
             font-weight: 700;
             margin: 0 10px;
@@ -86,19 +109,32 @@
         }
 
         .links a:hover {
-            color: #f3f4f6;
+            color: var(--primary);
         }
 
         input,
         textarea {
             background: #181824;
-            color: #e5e7eb;
-            border: 1px solid #444;
+            color: var(--text);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 8px;
+            font-size: 1rem;
         }
 
         button[type="submit"] {
-            background: #818cf8;
+            background: var(--accent);
             color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 10px 0;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        button[type="submit"]:hover {
+            background: var(--primary);
         }
 
         blockquote {
@@ -106,7 +142,33 @@
             border: none;
             padding: 0 0 16px 0;
             margin: 0 0 16px 0;
-            color: #e0e2e6 !important;
+            color: var(--text-light) !important;
+        }
+
+        @media (max-width: 600px) {
+            .container {
+                padding: 12px 2vw;
+            }
+
+            .profile-img {
+                max-width: 98vw;
+            }
+
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1rem;
+            }
+
+            h3 {
+                font-size: 1rem;
+            }
+
+            p {
+                font-size: 1rem;
+            }
         }
     </style>
 </head>
