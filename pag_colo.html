@@ -7,6 +7,7 @@
     <title>Nadia Szachniuk</title>
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        /* Variables de color y fondo */
         :root {
             --main-bg: linear-gradient(135deg, #181824 0%, #23233a 100%);
             --container-bg: #101018;
@@ -27,7 +28,7 @@
         }
 
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 40px auto;
             background: var(--container-bg);
             border-radius: 18px;
@@ -36,8 +37,8 @@
         }
 
         .profile-img {
-            width: 100%;
-            max-width: 520px;
+            width: 900px;
+            max-width: 100%;
             height: auto;
             object-fit: cover;
             border-radius: 18px;
@@ -112,6 +113,22 @@
             color: var(--primary);
         }
 
+        .instagram-link {
+            color: #E1306C !important;
+        }
+
+        .spotify-link {
+            color: #1DB954 !important;
+        }
+
+        .facebook-link {
+            color: #1877F3 !important;
+        }
+
+        .youtube-link {
+            color: #FF0000 !important;
+        }
+
         input,
         textarea {
             background: #181824;
@@ -143,6 +160,98 @@
             padding: 0 0 16px 0;
             margin: 0 0 16px 0;
             color: var(--text-light) !important;
+            font-style: italic;
+        }
+
+        /* Modern styles for main photo and name */
+        .main-photo {}
+
+        .main-photo-large {
+            transform: scale(1.15);
+            overflow: visible;
+            z-index: 2;
+            position: relative;
+            width: 100%;
+            margin: 0 0 40px 0;
+        }
+
+        .name-banner {
+            position: absolute;
+            top: 32px;
+            right: 60px;
+            left: auto;
+            transform: none;
+            background: transparent;
+            color: #fff;
+            padding: 14px 28px;
+            border-radius: 16px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            box-shadow: 0 4px 24px rgba(60, 60, 120, 0.10);
+            backdrop-filter: blur(4px);
+        }
+
+        .name-main {
+            font-size: 4rem;
+            font-weight: 900;
+            letter-spacing: 2px;
+            line-height: 1;
+            text-transform: uppercase;
+        }
+
+        .name-sub {
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 6px;
+            line-height: 1;
+            text-transform: uppercase;
+            margin-top: 2px;
+            color: var(--accent);
+        }
+
+        .section {
+            margin: 40px 0;
+            text-align: center;
+        }
+
+        .video-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px;
+            justify-content: center;
+        }
+
+        .video-list iframe {
+            width: 320px;
+            height: 180px;
+            border-radius: 12px;
+            border: none;
+            box-shadow: 0 2px 12px rgba(60, 60, 120, 0.12);
+            background: #23233a;
+            transition: box-shadow 0.2s;
+        }
+
+        .video-list iframe:hover {
+            box-shadow: 0 4px 24px rgba(129, 140, 248, 0.18);
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 16px;
+            justify-content: center;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
+            display: block;
+            margin: 0 0 36px 0;
+            color: #1DB954 !important;
         }
 
         @media (max-width: 600px) {
@@ -151,7 +260,20 @@
             }
 
             .profile-img {
-                max-width: 98vw;
+                width: 100vw;
+                margin-left: -2vw;
+            }
+
+            .instagram-link {
+                color: #E1306C !important;
+            }
+
+            .facebook-link {
+                color: #1877F3 !important;
+            }
+
+            .youtube-link {
+                color: #FF0000 !important;
             }
 
             h1 {
@@ -169,27 +291,48 @@
             p {
                 font-size: 1rem;
             }
+
+            .main-photo {
+                width: 100vw;
+                margin-left: -2vw;
+            }
+
+            .name-main {
+                font-size: 2.2rem;
+            }
+
+            .name-sub {
+                font-size: 1rem;
+            }
+
+            .video-list iframe {
+                width: 98vw;
+                height: 180px;
+            }
+
+            .gallery img {
+                width: 80px;
+                height: 80px;
+            }
         }
     </style>
 </head>
 
 <body>
+    <!-- Contenedor principal de la página -->
     <div class="container">
         <!-- Foto principal -->
-        <div style="position:relative; width:100%; max-width:700px; margin:0 auto 40px auto;">
-            <img src="_MG_5693.avif" alt="Nadia Szachniuk"
-                style="width:100%; height:auto; max-height:520px; object-fit:cover; border-radius:16px; box-shadow:0 4px 24px rgba(224, 112, 112, 0.25);">
-            <span
-                style="position:absolute; top:18px; right:24px; background:transparent; color:#192343; padding:10px 22px; border-radius:12px; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center;">
-                <span
-                    style="font-size:4.8rem; font-weight:900; letter-spacing:2px; line-height:1; text-transform:uppercase;">NADIA</span>
-                <span
-                    style="font-size:1.5rem; font-weight:700; letter-spacing:6px; line-height:1; text-transform:uppercase; margin-top:2px;">SZACHNIUK</span>
+        <!-- Sección: Foto principal y banner de nombre -->
+        <div style="position:relative; width:100%; max-width:1000px; margin:0 auto 40px auto;">
+            <img src="_MG_5693.avif" alt="Nadia Szachniuk" class="profile-img">
+            <span class="name-banner">
+                <span class="name-main">NADIA</span>
+                <span class="name-sub">SZACHNIUK</span>
             </span>
         </div>
         <!-- <h1>Nadia Szachniuk</h1>
         <h2>Artista, Cantante y Compositora</h2> -->
-        <!-- Videos -->
+        <!-- Sección: Videos de YouTube -->
         <div style="margin: 32px 0; text-align: center;">
             <h3 style="color:#3b3b5c;">Videos</h3>
             <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
@@ -202,16 +345,22 @@
             </div>
         </div>
         <!-- Enlaces de Spotify -->
+        <!-- Sección: Enlaces de Spotify -->
         <div style="margin: 32px 0; text-align: center;">
             <h3 style="color:#3b3b5c;">Escuchá sus discos</h3>
-            <a href="https://open.spotify.com/intl-es/album/4AM0g2cjy8GnjR4iJsvpzG?si=2fnPvAIyRhuvJYEwnzLqnA&nd=1&dlsi=ac9661bc54e040e9"
-                target="_blank" style="display:inline-block;margin:8px 16px;color:#1db954;font-weight:700;">Luna
-                Atrás</a>
-            <a href="https://open.spotify.com/intl-es/album/2wWfjlRzwsI86Bzij7G6ta?si=iyCbQuSqRNazoFBgmPA3DA&nd=1&dlsi=123edbe55c304ec0"
-                target="_blank" style="display:inline-block;margin:8px 16px;color:#1db954;font-weight:700;">Vidala en mi
-                zamba</a>
+            <div class="spotify-embed">
+                <iframe style="border-radius:12px"
+                    src="https://open.spotify.com/embed/album/4AM0g2cjy8GnjR4iJsvpzG?utm_source=generator" width="100%"
+                    height="152" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe style="border-radius:12px;margin-top:18px;"
+                    src="https://open.spotify.com/embed/album/2wWfjlRzwsI86Bzij7G6ta?utm_source=generator" width="100%"
+                    height="152" frameBorder="0" allowfullscreen=""
+                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+            </div>
         </div>
         <!-- Galería de fotos -->
+        <!-- Sección: Galería de fotos -->
         <div style="margin: 32px 0;">
             <h3 style="color:#3b3b5c;text-align:center;">Galería</h3>
             <div style="display: flex; flex-wrap: wrap; gap: 12px; justify-content: center;">
@@ -230,6 +379,7 @@
             </div>
         </div>
         <!-- Biografía extendida -->
+        <!-- Sección: Biografía extendida -->
         <div style="margin: 32px 0;">
             <h3 style="color:#3b3b5c;text-align:center;">BIO</h3>
             <p>Nadia Szachniuk</p>
@@ -270,6 +420,7 @@
                 Música Argentina en la Universidad Nacional de San Martín (UNSAM) desde el 2016.</p>
         </div>
         <!-- Comentarios de la prensa -->
+        <!-- Sección: Comentarios de la prensa -->
         <div style="margin: 32px 0;">
             <h3 style="color:#3b3b5c;text-align:center;">COMENTARIOS DE LA PRENSA</h3>
             <blockquote style="font-style:italic;color:#b9b9b9;margin-bottom:16px;">"Su música es, por suerte,
@@ -291,16 +442,23 @@
                 macerar las formas de cada especie musical".<br><span style="font-weight:700;">Télam</span></blockquote>
         </div>
         <!-- Contacto -->
+        <!-- Sección: Contacto -->
         <div style="margin: 32px 0;">
             <h3 style="color:#3b3b5c;text-align:center;">CONTACTO</h3>
             <p style="text-align:center;font-size:1.1rem;">nadiaszachniuk@gmail.com</p>
         </div>
         <!-- Enlaces sociales -->
+        <!-- Sección: Enlaces sociales -->
+        <!-- Redes sociales con íconos -->
         <div class="links">
-            <a href="https://www.instagram.com/nadiaszachniuk" target="_blank">Instagram</a>
-            <a href="https://www.youtube.com/channel/UCNadiaSzachniuk" target="_blank">YouTube</a>
-            <a href="https://open.spotify.com/artist/0NadiaSzachniuk" target="_blank">Spotify</a>
+            <a href="https://www.instagram.com/nadia_szachniuk/" target="_blank" class="instagram-link">Instagram</a>
+            <a href="https://open.spotify.com/user/21gmjoxn4urjyytfggtwxcsey?si=D2O5QSg1RlaUgx3JLXffsw&nd=1&dlsi=5c2f0115b9d14a69"
+                target="_blank" class="spotify-link">Spotify</a>
+            <a href="https://www.facebook.com/nadia.szachniuk" target="_blank" class="facebook-link">Facebook</a>
+            <a href="https://www.youtube.com/user/nadiaszachniuk/featured" target="_blank"
+                class="youtube-link">YouTube</a>
         </div>
+    </div>
     </div>
 </body>
 
