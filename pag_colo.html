@@ -12,7 +12,7 @@
             --main-bg: linear-gradient(135deg, #181824 0%, #23233a 100%);
             --container-bg: #101018;
             --primary: #a5b4fc;
-            --accent: #818cf8;
+            --accent: #7c88f4;
             --text: #f5f6fa;
             --text-light: #e0e2e6;
             --border: #23233a;
@@ -87,13 +87,19 @@
 
         p {
             font-size: 1.15rem;
-            line-height: 1.8;
             word-break: break-word;
             white-space: normal;
         }
 
         .bio {
             margin-bottom: 24px;
+            line-height: 1.4;
+        }
+
+        /* Si quieres que todos los párrafos de la bio tengan menor interlineado: */
+        .bio p {
+            line-height: 1.2 !important;
+            font-size: 1.05rem !important;
         }
 
         .links {
@@ -193,21 +199,22 @@
         }
 
         .name-main {
-            font-size: 4rem;
+            font-size: 5rem;
             font-weight: 900;
             letter-spacing: 2px;
             line-height: 1;
             text-transform: uppercase;
+            color: #874141;
         }
 
         .name-sub {
-            font-size: 1.3rem;
+            font-size: 2.3rem;
             font-weight: 700;
             letter-spacing: 6px;
             line-height: 1;
             text-transform: uppercase;
             margin-top: 2px;
-            color: var(--accent);
+            color: #874141;
         }
 
         .section {
@@ -310,7 +317,7 @@
             }
 
             .name-sub {
-                font-size: 1rem;
+                font-size: 1.3rem;
             }
 
             .video-list iframe {
