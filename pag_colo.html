@@ -94,12 +94,19 @@
         .bio {
             margin-bottom: 24px;
             line-height: 1.4;
+            padding-left: 2em;
+            color: var(--text-light);
         }
 
         /* Si quieres que todos los párrafos de la bio tengan menor interlineado: */
-        .bio p {
+        body .container .bio p {
             line-height: 1.2 !important;
             font-size: 1.05rem !important;
+            margin-top: 0 !important;
+            margin-bottom: 0.7em !important;
+            display: block !important;
+            text-indent: 2em !important;
+            color: var(--text-light) !important;
         }
 
         .links {
@@ -522,7 +529,7 @@
         </div>
         <!-- Biografía extendida -->
         <!-- Sección: Biografía extendida -->
-        <div style="margin: 32px 0;">
+        <div class="bio">
             <h3 style="color:#3b3b5c;text-align:center;">BIO</h3>
             <p>Oriunda de Salta, y con 20 años de residencia en Buenos Aires, se dedica al canto desde muy joven.
                 Presenta una amplia trayectoria como cantante solista, tanto en el ámbito popular como en el lírico. Es
