@@ -5,613 +5,855 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nadia Szachniuk</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
     <style>
-        /* Variables de color y fondo */
+        /* Professional Portfolio Design 2025 */
+
         :root {
-            --main-bg: linear-gradient(135deg, #181824 0%, #23233a 100%);
-            --container-bg: #101018;
+            --bg-dark: #0f0f13;
+            --bg-panel: #181820;
             --primary: #a5b4fc;
-            --accent: #7c88f4;
-            --text: #f5f6fa;
-            --text-light: #e0e2e6;
-            --border: #23233a;
-            --shadow: 0 4px 24px rgba(0, 0, 0, 0.35);
+            --accent: #6366f1;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --nav-height: 70px;
+            --container-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
         }
 
         body {
-            font-family: 'Montserrat', Arial, sans-serif;
-            background: var(--main-bg);
-            margin: 0;
-            padding: 0;
-            color: var(--text);
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 0%, #2a2a35 0%, var(--bg-dark) 70%);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-top: var(--nav-height);
+            /* Space for fixed nav */
         }
 
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            background: var(--container-bg);
-            border-radius: 18px;
-            box-shadow: var(--shadow);
-            padding: 32px 18px;
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: rgba(15, 15, 19, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
         }
 
-        .profile-img {
-            width: 900px;
-            max-width: 100%;
-            height: auto;
-            object-fit: cover;
-            border-radius: 18px;
-            box-shadow: 0 4px 24px rgba(0, 0, 0, 0.25);
-            display: block;
-            margin: 0 auto 36px auto;
-            transition: box-shadow 0.3s;
+        .nav-container {
+            width: 100%;
+            max-width: var(--container-width);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
         }
 
-        .profile-img:hover {
-            box-shadow: 0 8px 32px rgba(129, 140, 248, 0.18);
-        }
-
-        h1,
-        h2,
-        h3 {
-            text-align: center;
-        }
-
-        h1 {
-            font-size: 2.8rem;
-            margin-bottom: 8px;
-            color: var(--text);
-        }
-
-        h2 {
-            font-size: 1.3rem;
-            font-weight: 400;
-            color: var(--primary);
-            margin-bottom: 24px;
-        }
-
-        h3 {
-            color: #525275 !important;
+        .nav-brand {
+            font-weight: 900;
             font-size: 1.2rem;
-            margin-bottom: 18px;
             letter-spacing: 2px;
-            font-weight: 700;
+            color: #fff;
             text-transform: uppercase;
-        }
-
-        p,
-        blockquote,
-        label,
-        input,
-        textarea {
-            color: var(--text);
-        }
-
-        p {
-            font-size: 1.15rem;
-            word-break: break-word;
-            white-space: normal;
-        }
-
-        .bio {
-            margin-bottom: 24px;
-            line-height: 1.4;
-            padding-left: 2em;
-            color: var(--text-light);
-            text-indent: 2em;
-        }
-
-        /* Si quieres que todos los párrafos de la bio tengan menor interlineado: */
-        body .container .bio p {
-            line-height: 1.2 !important;
-            font-size: 1.05rem !important;
-            margin-top: 0 !important;
-            margin-bottom: 0.7em !important;
-            display: block !important;
-            text-indent: 2em !important;
-            color: var(--text-light) !important;
-        }
-
-        .links {
-            text-align: center;
-            margin-top: 18px;
-        }
-
-        .links a {
-            color: var(--accent);
+            cursor: pointer;
             text-decoration: none;
-            font-weight: 700;
-            margin: 0 10px;
-            transition: color 0.2s;
         }
 
-        .links a:hover {
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-item {
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+            text-decoration: none;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
             color: var(--primary);
         }
 
-        .instagram-link {
-            color: #E1306C !important;
-        }
-
-        .spotify-link {
-            color: #1DB954 !important;
-        }
-
-        .facebook-link {
-            color: #1877F3 !important;
-        }
-
-        .youtube-link {
-            color: #FF0000 !important;
-        }
-
-        input,
-        textarea {
-            background: #181824;
-            color: var(--text);
-            border: 1px solid var(--border);
-            border-radius: 8px;
-            padding: 8px;
-            font-size: 1rem;
-        }
-
-        button[type="submit"] {
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
             background: var(--accent);
-            color: #fff;
-            border: none;
-            border-radius: 8px;
-            padding: 10px 0;
-            font-weight: 700;
-            cursor: pointer;
-            transition: background 0.2s;
+            box-shadow: 0 0 10px var(--accent);
         }
 
-        button[type="submit"]:hover {
-            background: var(--primary);
-        }
-
-        blockquote {
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
             background: none;
             border: none;
-            padding: 0 0 16px 0;
-            margin: 0 0 16px 0;
-            color: var(--text-light) !important;
-            font-style: italic;
-        }
-
-        /* Modern styles for main photo and name */
-        .main-photo {}
-
-        .main-photo-large {
-            transform: scale(1.15);
-            overflow: visible;
-            z-index: 2;
-            position: relative;
-            width: 100%;
-            margin: 0 0 40px 0;
-        }
-
-        .name-banner {
-            position: absolute;
-            top: 32px;
-            right: 60px;
-            left: auto;
-            transform: none;
-            background: transparent;
             color: #fff;
-            padding: 14px 28px;
-            border-radius: 16px;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            box-shadow: 0 4px 24px rgba(60, 60, 120, 0.10);
-            backdrop-filter: blur(4px);
+            font-size: 1.5rem;
+            cursor: pointer;
         }
 
-        .name-main {
-            font-size: 5rem;
-            font-weight: 900;
-            letter-spacing: 2px;
-            line-height: 1;
-            text-transform: uppercase;
-            color: #874141;
+        /* Main Content Area */
+        .content-wrapper {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
         }
 
-        .name-sub {
-            font-size: 2.3rem;
-            font-weight: 700;
-            letter-spacing: 6px;
-            line-height: 1;
-            text-transform: uppercase;
-            margin-top: 2px;
-            color: #874141;
+        /* Sections */
+        html {
+            scroll-behavior: smooth;
         }
 
-        .section {
-            margin: 40px 0;
+        .tab-content {
+            display: block;
+            padding: 80px 0;
+            scroll-margin-top: var(--nav-height);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .tab-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Section (Inicio) */
+        .hero-section {
             text-align: center;
+            padding: 40px 0;
         }
 
-        .video-list {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 24px;
-            justify-content: center;
+        .hero-name {
+            font-size: clamp(3rem, 8vw, 6rem);
+            /* Responsive font size */
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
         }
 
-        .video-list iframe {
-            width: 320px;
-            height: 180px;
-            border-radius: 12px;
+        .hero-subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 6px;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .hero-image-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Sections General */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #fff;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Music Grid */
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .video-card {
+            background: var(--bg-panel);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-card iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
             border: none;
-            box-shadow: 0 2px 12px rgba(60, 60, 120, 0.12);
-            background: #23233a;
-            transition: box-shadow 0.2s;
         }
 
-        .video-list iframe:hover {
-            box-shadow: 0 4px 24px rgba(129, 140, 248, 0.18);
+        /* Bio Text */
+        .bio-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-panel);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
-        .gallery {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 16px;
-            justify-content: center;
+        .bio-text p {
+            margin-bottom: 1.5rem;
+            color: #d1d5db;
+            font-size: 1.05rem;
         }
 
+        /* Gallery */
         .gallery-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0px;
-            justify-items: stretch;
-            align-items: stretch;
-            margin-top: 18px;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
         }
 
-        .gallery-img {
+        .gallery-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
             width: 100%;
-            aspect-ratio: 1 / 1;
-            height: auto;
+            height: 100%;
             object-fit: cover;
-            border-radius: 0px;
-            box-shadow: none;
-            display: block;
+            transition: transform 0.4s ease;
         }
 
-        @media (max-width: 600px) {
-            .container {
-                padding: 12px 2vw;
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Press */
+        .press-grid {
+            display: grid;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .press-card {
+            background: var(--bg-panel);
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .press-images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .press-image-item {
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            aspect-ratio: 3/4;
+            background: var(--bg-panel);
+        }
+
+        .press-image-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .press-image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .press-image-item:hover img {
+            opacity: 1;
+        }
+
+        .press-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #e5e7eb;
+            margin-bottom: 15px;
+        }
+
+        .press-author {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        .main-footer {
+            background: #0a0a0c;
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
             }
 
-            .profile-img {
-                width: 100vw;
-                margin-left: -2vw;
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                background: var(--bg-panel);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 999;
             }
 
-            .instagram-link {
-                color: #E1306C !important;
+            .nav-links.active {
+                transform: translateY(0);
             }
 
-            .facebook-link {
-                color: #1877F3 !important;
+            .nav-item {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+                border-radius: 8px;
             }
 
-            .youtube-link {
-                color: #FF0000 !important;
+            .nav-item:hover {
+                background: rgba(255, 255, 255, 0.05);
             }
 
-            h1 {
-                font-size: 2rem;
+            .hero-name {
+                font-size: 3.5rem;
             }
 
-            h2 {
-                font-size: 1rem;
+            .content-wrapper {
+                padding: 0 15px;
             }
 
-            h3 {
-                font-size: 1rem;
+            .bio-container {
+                padding: 25px;
             }
+        }
 
-            p {
-                font-size: 1rem;
-            }
+        /* Utility Classes */
+        .spotify-embed {
+            border-radius: 12px;
+            width: 100%;
+            height: 152px;
+            border: 0;
+        }
 
-            .main-photo {
-                width: 100vw;
-                margin-left: -2vw;
-            }
+        .toggle-btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
 
-            .name-main {
-                font-size: 2.2rem;
-            }
+        .toggle-btn {
+            padding: 10px 30px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
 
-            .name-sub {
-                font-size: 1.3rem;
-            }
+        .toggle-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+        }
 
-            .video-list iframe {
-                width: 98vw;
-                height: 180px;
-            }
-
-            .gallery-img {
-                aspect-ratio: 1 / 1;
-            }
-
-            .gallery-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
+        .hidden-music {
+            display: none;
+            margin-top: 30px;
         }
     </style>
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const images = document.querySelectorAll('.gallery-img');
-            const gallery = Array.from(images).map(img => img.src);
-            let currentIndex = 0;
 
-            // Create modal elements
-            const modal = document.createElement('div');
-            modal.id = 'gallery-modal';
-            modal.style.position = 'fixed';
-            modal.style.top = '0';
-            modal.style.left = '0';
-            modal.style.width = '100vw';
-            modal.style.height = '100vh';
-            modal.style.background = 'rgba(0,0,0,0.85)';
-            modal.style.display = 'none';
-            modal.style.justifyContent = 'center';
-            modal.style.alignItems = 'center';
-            modal.style.zIndex = '9999';
-
-            // Modal content
-            const modalContent = document.createElement('div');
-            modalContent.style.position = 'relative';
-            modalContent.style.display = 'flex';
-            modalContent.style.alignItems = 'center';
-            modalContent.style.justifyContent = 'center';
-
-            // Image element
-            const modalImg = document.createElement('img');
-            modalImg.style.maxWidth = '80vw';
-            modalImg.style.maxHeight = '80vh';
-            modalImg.style.borderRadius = '12px';
-            modalImg.style.boxShadow = '0 4px 24px rgba(0,0,0,0.5)';
-
-            // Left arrow
-            const leftArrow = document.createElement('span');
-            leftArrow.innerHTML = '&#8592;';
-            leftArrow.style.position = 'absolute';
-            leftArrow.style.left = '-48px';
-            leftArrow.style.top = '50%';
-            leftArrow.style.transform = 'translateY(-50%)';
-            leftArrow.style.fontSize = '3rem';
-            leftArrow.style.color = '#fff';
-            leftArrow.style.cursor = 'pointer';
-            leftArrow.style.userSelect = 'none';
-
-            // Right arrow
-            const rightArrow = document.createElement('span');
-            rightArrow.innerHTML = '&#8594;';
-            rightArrow.style.position = 'absolute';
-            rightArrow.style.right = '-48px';
-            rightArrow.style.top = '50%';
-            rightArrow.style.transform = 'translateY(-50%)';
-            rightArrow.style.fontSize = '3rem';
-            rightArrow.style.color = '#fff';
-            rightArrow.style.cursor = 'pointer';
-            rightArrow.style.userSelect = 'none';
-
-            // Close button (X)
-            const closeBtn = document.createElement('span');
-            closeBtn.innerHTML = '&#10006;';
-            closeBtn.style.position = 'absolute';
-            closeBtn.style.top = '-48px';
-            closeBtn.style.right = '0';
-            closeBtn.style.fontSize = '2.5rem';
-            closeBtn.style.color = '#fff';
-            closeBtn.style.cursor = 'pointer';
-            closeBtn.style.userSelect = 'none';
-            closeBtn.style.background = 'rgba(0,0,0,0.3)';
-            closeBtn.style.borderRadius = '50%';
-            closeBtn.style.padding = '6px 14px';
-
-            closeBtn.addEventListener('click', function (e) {
-                e.stopPropagation();
-                modal.style.display = 'none';
-            });
-
-            // Close modal on background click
-            modal.addEventListener('click', function (e) {
-                if (e.target === modal) {
-                    modal.style.display = 'none';
-                }
-            });
-
-            // Arrow navigation
-            leftArrow.addEventListener('click', function (e) {
-                e.stopPropagation();
-                currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
-                modalImg.src = gallery[currentIndex];
-            });
-            rightArrow.addEventListener('click', function (e) {
-                e.stopPropagation();
-                currentIndex = (currentIndex + 1) % gallery.length;
-                modalImg.src = gallery[currentIndex];
-            });
-
-            // Keyboard navigation
-            document.addEventListener('keydown', function (e) {
-                if (modal.style.display === 'flex') {
-                    if (e.key === 'ArrowLeft') {
-                        currentIndex = (currentIndex - 1 + gallery.length) % gallery.length;
-                        modalImg.src = gallery[currentIndex];
-                    } else if (e.key === 'ArrowRight') {
-                        currentIndex = (currentIndex + 1) % gallery.length;
-                        modalImg.src = gallery[currentIndex];
-                    } else if (e.key === 'Escape') {
-                        modal.style.display = 'none';
-                    }
-                }
-            });
-
-            // Add elements to modal
-            modalContent.appendChild(closeBtn);
-            modalContent.appendChild(leftArrow);
-            modalContent.appendChild(modalImg);
-            modalContent.appendChild(rightArrow);
-            modal.appendChild(modalContent);
-            document.body.appendChild(modal);
-
-            // Open modal on image click
-            images.forEach((img, idx) => {
-                img.style.cursor = 'pointer';
-                img.addEventListener('click', function () {
-                    currentIndex = idx;
-                    modalImg.src = gallery[currentIndex];
-                    modal.style.display = 'flex';
-                });
-            });
-        });
-    </script>
 </head>
 
 <body>
-    <!-- Contenedor principal de la página -->
-    <div class="container">
-        <!-- Foto principal -->
-        <!-- Sección: Foto principal y banner de nombre -->
-        <div style="position:relative; width:100%; max-width:1000px; margin:0 auto 40px auto;">
-            <img src="MG5693.jpg" alt="Nadia Szachniuk" class="profile-img">
-            <span class="name-banner">
-                <span class="name-main">NADIA</span>
-                <span class="name-sub">SZACHNIUK</span>
-            </span>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-brand">NADIA SZACHNIUK</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio" class="nav-item active" onclick="closeMenu()">Inicio</a></li>
+                <li><a href="#musica" class="nav-item" onclick="closeMenu()">Música</a></li>
+                <li><a href="#bio" class="nav-item" onclick="closeMenu()">Bio</a></li>
+                <li><a href="#galeria" class="nav-item" onclick="closeMenu()">Galería</a></li>
+                <li><a href="#prensa" class="nav-item" onclick="closeMenu()">Prensa</a></li>
+                <li><a href="#contacto" class="nav-item" onclick="closeMenu()">Contacto</a></li>
+            </ul>
         </div>
-        <!-- <h1>Nadia Szachniuk</h1>
-        <h2>Artista, Cantante y Compositora</h2> -->
-        <!-- Sección: Videos de YouTube -->
-        <div style="margin: 32px 0; text-align: center;">
-            <h3 style="color:#3b3b5c;">Videos</h3>
-            <div style="display: flex; flex-wrap: wrap; gap: 16px; justify-content: center;">
-                <iframe width="320" height="180" src="https://www.youtube.com/embed/kL5U-YH_Byk" title="YouTube video 1"
-                    frameborder="0" allowfullscreen></iframe>
-                <iframe width="320" height="180" src="https://www.youtube.com/embed/tMMCeBrFan4" title="YouTube video 2"
-                    frameborder="0" allowfullscreen></iframe>
-                <iframe width="320" height="180" src="https://www.youtube.com/embed/tj9GQIvwSuU" title="YouTube video 3"
-                    frameborder="0" allowfullscreen></iframe>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content-wrapper">
+
+        <!-- Tab: Inicio -->
+        <section id="inicio" class="tab-content active">
+            <div class="hero-section">
+                <h1 class="hero-name">NADIA SZACHNIUK</h1>
+                <div class="hero-subtitle">CANTANTE ARGENTINA</div>
+                <div class="hero-image-container">
+                    <img src="MG5693.jpeg" alt="Nadia Szachniuk" class="hero-image">
+                </div>
             </div>
-        </div>
-        <!-- Enlaces de Spotify -->
-        <!-- Sección: Enlaces de Spotify -->
-        <div style="margin: 32px 0; text-align: center;">
-            <h3 style="color:#3b3b5c;">Escuchá sus discos</h3>
-            <div class="spotify-embed">
-                <iframe style="border-radius:12px"
-                    src="https://open.spotify.com/embed/album/4AM0g2cjy8GnjR4iJsvpzG?utm_source=generator" width="100%"
-                    height="152" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
-                <iframe style="border-radius:12px;margin-top:18px;"
-                    src="https://open.spotify.com/embed/album/2wWfjlRzwsI86Bzij7G6ta?utm_source=generator" width="100%"
-                    height="152" frameBorder="0" allowfullscreen=""
-                    allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+        </section>
+
+        <!-- Tab: Música -->
+        <section id="musica" class="tab-content">
+            <h2 class="section-title">VIDEOS</h2>
+            <div class="music-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/kL5U-YH_Byk" title="Video 1" allowfullscreen></iframe>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/tMMCeBrFan4" title="Video 2" allowfullscreen></iframe>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/tj9GQIvwSuU" title="Video 3" allowfullscreen></iframe>
+                </div>
             </div>
-        </div>
-        <!-- Galería de fotos -->
-        <!-- Sección: Galería de fotos -->
-        <div style="margin: 32px 0;">
-            <h3 style="color:#3b3b5c;text-align:center;">Galería</h3>
+
+            <h2 class="section-title">DISCOGRAFÍA</h2>
+            <div class="music-grid">
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/4AM0g2cjy8GnjR4iJsvpzG?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/17duyDIiffzfIh4PSnnnCa?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/1cQcVS1ePVnHSmp7rmpLMW?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+            </div>
+
+            <div id="more-music" class="music-grid hidden-music">
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/33Dqfo9SDXrlAF2Pr4ZfFo?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/4JZpyxmyKp6po5ad4bjByu?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/11ByNDrTfLRrx07cEBpJ4R?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/5TLlFkrDTJpvBucWV7icBb?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/7oOih0r52QVW8OkhWRQIMz?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/4acpxYd66Za97IkiYfr9O8?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/5Umesasx0mJOV8ilndrzKP?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/0v9KEcxK5MUBDBxx5qfwlC?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/5sOSmowhnXWxTTVUGpxQeh?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/3PcWCgYBjH3h91fiyeja9P?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/3GRxBAl1vrQU9U5vsmzpk6?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+            </div>
+
+            <div class="toggle-btn-container">
+                <button id="toggle-music-btn" onclick="toggleMusic()" class="toggle-btn">VER MÁS</button>
+            </div>
+        </section>
+
+        <!-- Tab: Bio -->
+        <section id="bio" class="tab-content">
+            <h2 class="section-title">BIOGRAFÍA</h2>
+            <div class="bio-container">
+                <div class="bio-text">
+                    <p>Oriunda de Salta, y con 20 años de residencia en Buenos Aires, se dedica al canto desde muy
+                        joven. Presenta una amplia trayectoria como cantante solista, tanto en el ámbito popular como en
+                        el lírico. Es Musicoterapeuta en prevención de la salud (USAL 2004), y estudió la Tecnicatura en
+                        Música Antigua con orientación en Canto.</p>
+                    <p>Formó parte del Coro Nacional de Jóvenes desde el año 2004 hasta el 2019, perteneciente a los
+                        cuerpos artísticos estables y profesionales de la Nación, e integró numerosas agrupaciones
+                        vocales y corales.</p>
+                    <p>Ganó el Premio Gardel 2012 “Mejor Álbum Nuevo Artista de Folklore 2012” con el disco “Vidala”,
+                        grabado a dúo con Eva Sola, con la participación de Juan Falú y Facundo Guevara.</p>
+                    <p>En 2016 grabó su primer disco solista “Luna Atrás”, junto a Bruno Moguilevsky, Alejandro
+                        Starosielski, Marcelo Moguilevsky, Facundo Guevara, Santiago Segret, Ignacio Vidal.</p>
+                    <p>En 2019 grabó “Puente” y “Folklore Uno”, su nuevo material en formato audiovisual compuesto y
+                        grabado durante una residencia artística en Portugal (Musiberia).</p>
+                    <p>En 2021 grabó el segundo disco del dúo Eva y Nadia: “Vidala en mi zamba” con el que también ganó
+                        el Premio Gardel Mejor Grupo de Folklore 2022.</p>
+                    <p>En 2022 editó el disco “Falú, por Nadia y Juan”, junto a Juan Falú.</p>
+                    <p>Cada año brinda conciertos y seminarios de canto, canto con caja y música argentina, tanto en el
+                        ámbito nacional como internacional (Brasil, Europa, África, Canadá y Estados Unidos).</p>
+                    <p>Se desempeña como docente particular de canto desde el 2007 y como docente de Canto de la
+                        Licenciatura de Música Argentina en la Universidad Nacional de San Martín (UNSAM) desde el 2016.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab: Galería -->
+        <section id="galeria" class="tab-content">
+            <h2 class="section-title">GALERÍA</h2>
             <div class="gallery-grid">
-                <img src="1.avif" alt="Foto 1" class="gallery-img">
-                <img src="2.avif" alt="Foto 2" class="gallery-img">
-                <img src="3.avif" alt="Foto 3" class="gallery-img">
-                <img src="4.avif" alt="Foto 4" class="gallery-img">
-                <img src="5.avif" alt="Foto 5" class="gallery-img">
-                <img src="6.avif" alt="Foto 6" class="gallery-img">
+                <div class="gallery-item"><img src="1.avif" alt="Foto 1" onclick="openModal(0, 'gallery')"></div>
+                <div class="gallery-item"><img src="2.avif" alt="Foto 2" onclick="openModal(1, 'gallery')"></div>
+                <div class="gallery-item"><img src="3.avif" alt="Foto 3" onclick="openModal(2, 'gallery')"></div>
+                <div class="gallery-item"><img src="4.avif" alt="Foto 4" onclick="openModal(3, 'gallery')"></div>
+                <div class="gallery-item"><img src="5.avif" alt="Foto 5" onclick="openModal(4, 'gallery')"></div>
+                <div class="gallery-item"><img src="6.avif" alt="Foto 6" onclick="openModal(5, 'gallery')"></div>
             </div>
-        </div>
-        <!-- Biografía extendida -->
-        <!-- Sección: Biografía extendida -->
-        <div class="bio">
-            <h3 style="color:#3b3b5c;text-align:center;">BIO</h3>
-            <p>Oriunda de Salta, y con 20 años de residencia en Buenos Aires, se dedica al canto desde muy joven.
-                Presenta una amplia trayectoria como cantante solista, tanto en el ámbito popular como en el lírico. Es
-                Musicoterapeuta en prevención de la salud (USAL 2004), y estudió la Tecnicatura en Música Antigua con
-                orientación en Canto (Conservatorio Manuel de Falla 2006 - 2011); Canto particular con diversos maestros
-                (Elisa Viladesau, Horacio Amauri, Marta Blanco, Victor Torres, Graciela Oddone, Silvina Sadoly, Fabiana
-                Grosso, entre otros). También realizó estudios de composición, improvisación, percusión, técnica
-                corporal y danzas.</p>
-            <p>Formó parte del Coro Nacional de Jóvenes desde el año 2004 hasta el 2019, perteneciente a los cuerpos
-                artísticos estables y profesionales de la Nación, e integró numerosas agrupaciones vocales y corales
-                (Balkan Spice, Nonsense Ensamble Vocal de Solistas, Dúo Eva y Nadia, Coro Ars Nova, Coro Trilce, Orfeón
-                de Bs As, Ars Subtilis, Ronda, entre otros).</p>
-            <p>Ganó el Premio Gardel 2012 “Mejor Álbum Nuevo Artista de Folklore 2012” con el disco “Vidala”, grabado a
-                dúo con Eva Sola, con la participación de Juan Falú y Facundo Guevara.</p>
-            <p>En 2016 grabó su primer disco solista “Luna Atrás”, junto a Bruno Moguilevsky, Alejandro Starosielski,
-                Marcelo Moguilevsky, Facundo Guevara, Santiago Segret, Ignacio Vidal.</p>
-            <p>En 2019 grabó “Puente” y “Folklore Uno”, su nuevo material en formato audiovisual compuesto y grabado
-                durante una residencia artística en Portugal (Musiberia), junto al guitarrista Seva Castro, con la
-                participación de Ariel Rodríguez e Ignacio Vidal Chedufau.</p>
-            <p>Editó múltiples singles y EP (Lapachos, Canción de agosto, El antigal, Erquenchada, entre otros)</p>
-            <p>En 2021 grabó el segundo disco del dúo Eva y Nadia: “Vidala en mi zamba” con el que también ganó el
-                Premio Gardel Mejor Grupo de Folklore 2022.</p>
-            <p>En 2022 editó el disco “Falú, por Nadia y Juan”, junto a Juan Falú,.</p>
-            <p>Cada año brinda conciertos y seminarios de canto, canto con caja y música argentina, tanto en el ámbito
-                nacional como internacional (Brasil, Europa, África, Canadá y Estados Unidos). Realizó 4 giras al
-                exterior a partir de sus últimos trabajos discográficos, con el apoyo de entidades como el INAMU y el
-                FNA en dos oportunidades.</p>
-            <p>Como solista ha compartido escenario y ha colaborado con diversos artistas como Dominic Miller
-                (Guitarrista de Sting), Juan Quintero, Juan Falú, Lisandro Aristimuño, Tonolec, Marcelo Moguilevsky,
-                César Lerner, Facundo Guevara, La Bomba de tiempo, Orquesta Sinfónica de Salta, Diego Rolón, Tiki
-                Mariano Cantero, Nuno Aroso, Será Arrebol, Martin Bruhn, Victor Torres, Susanna Moncayo, Juan Manuel
-                Quintana, Federico Ciancio, Susana Travassos, La Cangola Trunca, entre otros. Además entre los años 2006
-                y 2017, ha sido solista en diversas producciones de ópera y /o conciertos líricos llevados a cabo en el
-                Teatro Colón, Teatro Avenida, Teatro Cervantes, Usina del Arte, CCK, etc.</p>
-            <p>Se desempeña como docente particular de canto desde el 2007 y como docente de Canto de la Licenciatura de
-                Música Argentina en la Universidad Nacional de San Martín (UNSAM) desde el 2016.</p>
-        </div>
-        <!-- Comentarios de la prensa -->
-        <!-- Sección: Comentarios de la prensa -->
-        <div style="margin: 32px 0;">
-            <h3 style="color:#3b3b5c;text-align:center;">COMENTARIOS DE LA PRENSA</h3>
-            <blockquote style="font-style:italic;color:#b9b9b9;margin-bottom:16px;">"Su música es, por suerte,
-                inclasificable. Es decir, se aleja de cualquier simplificación y nada tiene que ver con ningún lugar
-                común. Y, al mismo tiempo, también por suerte, guarda claras e identificables señales que marcan
-                raigambres y tradiciones. Parte del atractivo de Luna atrás, su notable segundo disco, tiene que ver con
-                su voz, desde ya. Con su fraseo expresivo y sin amaneramiento, con la afinación impecable y con la
-                calidez y comunicatividad del timbre."<br><span style="font-weight:700;">Diego Fischerman.
-                    Página/12</span></blockquote>
-            <blockquote style="font-style:italic;color:#555;margin-bottom:16px;">"La interpretación de Szachniuk es
-                exquisita, explora todos los matices posibles y se mueve con igual maestría entre el canto lírico, el
-                jazz y el canto popular".<br><span style="font-weight:700;">Daniel Hofer. Hecho en Bs. As.</span>
-            </blockquote>
-            <blockquote style="font-style:italic;color:#555;margin-bottom:16px;">"Pocos secretos del canto están
-                cerrados a Nadia Szachniuk".<br><span style="font-weight:700;">Patricio Féminis. Clarín</span>
-            </blockquote>
-            <blockquote style="font-style:italic;color:#555;margin-bottom:16px;">"Pletórico de matices, Luna Atrás se
-                desliza con destreza entre lo académico y lo popular en la voz de una cantante que ha sabido estudiar y
-                macerar las formas de cada especie musical".<br><span style="font-weight:700;">Télam</span></blockquote>
-        </div>
-        <!-- Contacto -->
-        <!-- Sección: Contacto -->
-        <div style="margin: 32px 0;">
-            <h3 style="color:#3b3b5c;text-align:center;">CONTACTO</h3>
-            <p style="text-align:center;font-size:1.1rem;">nadiaszachniuk@gmail.com</p>
-        </div>
-        <!-- Enlaces sociales -->
-        <!-- Sección: Enlaces sociales -->
-        <!-- Redes sociales con íconos -->
-        <div class="links">
-            <a href="https://www.instagram.com/nadia_szachniuk/" target="_blank" class="instagram-link">Instagram</a>
-            <a href="https://open.spotify.com/user/21gmjoxn4urjyytfggtwxcsey?si=D2O5QSg1RlaUgx3JLXffsw&nd=1&dlsi=5c2f0115b9d14a69"
-                target="_blank" class="spotify-link">Spotify</a>
-            <a href="https://www.facebook.com/nadia.szachniuk" target="_blank" class="facebook-link">Facebook</a>
-            <a href="https://www.youtube.com/user/nadiaszachniuk/featured" target="_blank"
-                class="youtube-link">YouTube</a>
-        </div>
-    </div>
-    </div>
+        </section>
+
+        <!-- Tab: Prensa -->
+        <section id="prensa" class="tab-content">
+            <h2 class="section-title">PRENSA</h2>
+            <div class="press-grid">
+                <div class="press-card">
+                    <p class="press-quote">"Su música es, por suerte, inclasificable... Parte del atractivo de Luna
+                        atrás, su notable segundo disco, tiene que ver con su voz, desde ya. Con su fraseo expresivo y
+                        sin amaneramiento."</p>
+                    <p class="press-author">Diego Fischerman. Página/12</p>
+                </div>
+                <div class="press-card">
+                    <p class="press-quote">"La interpretación de Szachniuk es exquisita, explora todos los matices
+                        posibles y se mueve con igual maestría entre el canto lírico, el jazz y el canto popular."</p>
+                    <p class="press-author">Daniel Hofer. Hecho en Bs. As.</p>
+                </div>
+                <div class="press-card">
+                    <p class="press-quote">"Pocos secretos del canto están cerrados a Nadia Szachniuk."</p>
+                    <p class="press-author">Patricio Féminis. Clarín</p>
+                </div>
+                <div class="press-card">
+                    <p class="press-quote">"Pletórico de matices, Luna Atrás se desliza con destreza entre lo académico
+                        y lo popular en la voz de una cantante que ha sabido estudiar y macerar las formas de cada
+                        especie musical."</p>
+                    <p class="press-author">Télam</p>
+                </div>
+            </div>
+
+            <div class="press-images-grid">
+                <div class="press-image-item"><img src="prensa/12342.avif" alt="Nota de prensa"
+                        onclick="openModal(0, 'press')"></div>
+                <div class="press-image-item"><img
+                        src="prensa/e22eec_1fe26c91c95143b59ef714ac15cb6f5b~mv2_d_1373_1882_s_2.avif"
+                        alt="Nota de prensa" onclick="openModal(1, 'press')"></div>
+                <div class="press-image-item"><img src="prensa/e22eec_32aee9f01594f7bfe4118245bca9ea34.avif"
+                        alt="Nota de prensa" onclick="openModal(2, 'press')"></div>
+                <div class="press-image-item"><img
+                        src="prensa/e22eec_3d14f8d9f3094a939ae971be79967ed5~mv2_d_2230_1515_s_2.avif"
+                        alt="Nota de prensa" onclick="openModal(3, 'press')"></div>
+                <div class="press-image-item"><img
+                        src="prensa/e22eec_5a85d1fe6d7a40c29abf01c7923da744~mv2_d_1700_2338_s_2.avif"
+                        alt="Nota de prensa" onclick="openModal(4, 'press')"></div>
+                <div class="press-image-item"><img src="prensa/e22eec_65c59508321af12b51094327354271ba.avif"
+                        alt="Nota de prensa" onclick="openModal(5, 'press')"></div>
+                <div class="press-image-item"><img src="prensa/e22eec_69253b3f011e4ab9ab223533d51a0a02~mv2.avif"
+                        alt="Nota de prensa" onclick="openModal(6, 'press')"></div>
+                <div class="press-image-item"><img
+                        src="prensa/e22eec_94d8d76d019546f7bf9a7bee46d0989b~mv2_d_2232_1682_s_2.avif"
+                        alt="Nota de prensa" onclick="openModal(7, 'press')"></div>
+                <div class="press-image-item"><img src="prensa/e22eec_9dc1f6ea209844b9beb06b9f53c9c968~mv2.avif"
+                        alt="Nota de prensa" onclick="openModal(8, 'press')"></div>
+                <div class="press-image-item"><img src="prensa/e22eec_a9c91c8f3399bd1e320da130cbfa1c00.avif"
+                        alt="Nota de prensa" onclick="openModal(9, 'press')"></div>
+                <div class="press-image-item"><img
+                        src="prensa/e22eec_bfd46cbefd724c099859a9bbebf6cd07~mv2_d_1537_2048_s_2.avif"
+                        alt="Nota de prensa" onclick="openModal(10, 'press')"></div>
+                <div class="press-image-item"><img src="prensa/e22eec_bffa5d87ecc94212996d904a84b47289~mv2.avif"
+                        alt="Nota de prensa" onclick="openModal(11, 'press')"></div>
+                <div class="press-image-item"><img
+                        src="prensa/e22eec_c2edaaa2a435488e89439acfae0098d9~mv2_d_1700_2338_s_2.avif"
+                        alt="Nota de prensa" onclick="openModal(12, 'press')"></div>
+                <div class="press-image-item"><img
+                        src="prensa/e22eec_cac62a41d83c4f5684cc06579e0239e5~mv2_d_1700_2338_s_2.avif"
+                        alt="Nota de prensa" onclick="openModal(13, 'press')"></div>
+                <div class="press-image-item"><img
+                        src="prensa/e22eec_ceb2791a106e47249de6b64d5d05a391~mv2_d_1205_1403_s_2.avif"
+                        alt="Nota de prensa" onclick="openModal(14, 'press')"></div>
+                <div class="press-image-item"><img src="prensa/e22eec_cf26352545e346869946b65ca3e77092~mv2.avif"
+                        alt="Nota de prensa" onclick="openModal(15, 'press')"></div>
+                <div class="press-image-item"><img src="prensa/e22eec_d398df7eaa57443e905548ec5a0d9be0~mv2.avif"
+                        alt="Nota de prensa" onclick="openModal(16, 'press')"></div>
+                <div class="press-image-item"><img
+                        src="prensa/e22eec_d819ac021a4f4cd99b6dd752a5716354~mv2_d_1502_2048_s_2.avif"
+                        alt="Nota de prensa" onclick="openModal(17, 'press')"></div>
+                <div class="press-image-item"><img src="prensa/e22eec_dfedeff4c0434b2eb4648e1b45aba434~mv2.avif"
+                        alt="Nota de prensa" onclick="openModal(18, 'press')"></div>
+                <div class="press-image-item"><img src="prensa/e22eec_e4115060915642bbafaa4bd48c167991~mv2.avif"
+                        alt="Nota de prensa" onclick="openModal(19, 'press')"></div>
+                <div class="press-image-item"><img src="prensa/e22eec_e961d77c3609482bb3f5f7d299e59413~mv2.avif"
+                        alt="Nota de prensa" onclick="openModal(20, 'press')"></div>
+            </div>
+        </section>
+
+        <!-- Tab: Contacto -->
+        <section id="contacto" class="tab-content">
+            <h2 class="section-title">CONTACTO</h2>
+            <div class="social-links">
+                <a href="https://www.instagram.com/nadia_szachniuk/" target="_blank" class="social-btn">Instagram</a>
+                <a href="https://open.spotify.com/user/21gmjoxn4urjyytfggtwxcsey" target="_blank"
+                    class="social-btn">Spotify</a>
+                <a href="https://www.facebook.com/nadia.szachniuk" target="_blank" class="social-btn">Facebook</a>
+                <a href="https://www.youtube.com/user/nadiaszachniuk/featured" target="_blank"
+                    class="social-btn">YouTube</a>
+            </div>
+            <p style="color: #6b7280; font-size: 1.1rem; margin-top: 20px; text-align: center;">nadiaszachniuk@gmail.com
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p style="color: #6b7280; font-size: 0.8rem;">&copy; 2025 Nadia Szachniuk. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Scroll Spy & Animation Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.tab-content');
+            const navItems = document.querySelectorAll('.nav-item');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px', // Trigger when section is near top
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add visible class for animation
+                        entry.target.classList.add('visible');
+
+                        // Update Nav
+                        navItems.forEach(item => {
+                            item.classList.remove('active');
+                            if (item.getAttribute('href').substring(1) === entry.target.id) {
+                                item.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        function closeMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+        }
+
+        // Gallery Modal Logic
+        const galleryImages = ['1.avif', '2.avif', '3.avif', '4.avif', '5.avif', '6.avif'];
+        const pressImages = [
+            'prensa/12342.avif',
+            'prensa/e22eec_1fe26c91c95143b59ef714ac15cb6f5b~mv2_d_1373_1882_s_2.avif',
+            'prensa/e22eec_32aee9f01594f7bfe4118245bca9ea34.avif',
+            'prensa/e22eec_3d14f8d9f3094a939ae971be79967ed5~mv2_d_2230_1515_s_2.avif',
+            'prensa/e22eec_5a85d1fe6d7a40c29abf01c7923da744~mv2_d_1700_2338_s_2.avif',
+            'prensa/e22eec_65c59508321af12b51094327354271ba.avif',
+            'prensa/e22eec_69253b3f011e4ab9ab223533d51a0a02~mv2.avif',
+            'prensa/e22eec_94d8d76d019546f7bf9a7bee46d0989b~mv2_d_2232_1682_s_2.avif',
+            'prensa/e22eec_9dc1f6ea209844b9beb06b9f53c9c968~mv2.avif',
+            'prensa/e22eec_a9c91c8f3399bd1e320da130cbfa1c00.avif',
+            'prensa/e22eec_bfd46cbefd724c099859a9bbebf6cd07~mv2_d_1537_2048_s_2.avif',
+            'prensa/e22eec_bffa5d87ecc94212996d904a84b47289~mv2.avif',
+            'prensa/e22eec_c2edaaa2a435488e89439acfae0098d9~mv2_d_1700_2338_s_2.avif',
+            'prensa/e22eec_cac62a41d83c4f5684cc06579e0239e5~mv2_d_1700_2338_s_2.avif',
+            'prensa/e22eec_ceb2791a106e47249de6b64d5d05a391~mv2_d_1205_1403_s_2.avif',
+            'prensa/e22eec_cf26352545e346869946b65ca3e77092~mv2.avif',
+            'prensa/e22eec_d398df7eaa57443e905548ec5a0d9be0~mv2.avif',
+            'prensa/e22eec_d819ac021a4f4cd99b6dd752a5716354~mv2_d_1502_2048_s_2.avif',
+            'prensa/e22eec_dfedeff4c0434b2eb4648e1b45aba434~mv2.avif',
+            'prensa/e22eec_e4115060915642bbafaa4bd48c167991~mv2.avif',
+            'prensa/e22eec_e961d77c3609482bb3f5f7d299e59413~mv2.avif'
+        ];
+
+        let currentImages = [];
+        let currentImgIndex = 0;
+
+        // Create Modal HTML dynamically if not exists
+        if (!document.getElementById('gallery-modal')) {
+            const modalHTML = `
+                <div id="gallery-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:2000; justify-content:center; align-items:center;">
+                    <button onclick="closeModal()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:white; font-size:3rem; cursor:pointer;">&times;</button>
+                    <button onclick="prevImage()" style="position:absolute; left:20px; background:none; border:none; color:white; font-size:3rem; cursor:pointer;">&#8249;</button>
+                    <img id="modal-img" src="" style="max-width:90%; max-height:90vh; border-radius:8px;">
+                    <button onclick="nextImage()" style="position:absolute; right:20px; background:none; border:none; color:white; font-size:3rem; cursor:pointer;">&#8250;</button>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+
+        function openModal(index, type) {
+            if (type === 'gallery') {
+                currentImages = galleryImages;
+            } else if (type === 'press') {
+                currentImages = pressImages;
+            }
+            currentImgIndex = index;
+            updateModalImage();
+            document.getElementById('gallery-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('gallery-modal').style.display = 'none';
+        }
+
+        function nextImage() {
+            currentImgIndex = (currentImgIndex + 1) % currentImages.length;
+            updateModalImage();
+        }
+
+        function prevImage() {
+            currentImgIndex = (currentImgIndex - 1 + currentImages.length) % currentImages.length;
+            updateModalImage();
+        }
+
+        function updateModalImage() {
+            document.getElementById('modal-img').src = currentImages[currentImgIndex];
+        }
+
+        // Close on background click
+        document.getElementById('gallery-modal').addEventListener('click', function (e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            if (document.getElementById('gallery-modal').style.display === 'flex') {
+                if (e.key === 'ArrowLeft') prevImage();
+                else if (e.key === 'ArrowRight') nextImage();
+                else if (e.key === 'Escape') closeModal();
+            }
+        });
+
+        // Toggle Music Logic
+        function toggleMusic() {
+            const moreMusic = document.getElementById('more-music');
+            const btn = document.getElementById('toggle-music-btn');
+
+            const isHidden = window.getComputedStyle(moreMusic).display === 'none';
+
+            if (isHidden) {
+                moreMusic.style.display = 'grid';
+                btn.textContent = 'VER MENOS';
+            } else {
+                moreMusic.style.display = 'none';
+                btn.textContent = 'VER MÁS';
+            }
+        }
+    </script>
 </body>
 
 </html>
