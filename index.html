@@ -258,11 +258,63 @@
         }
 
         .bio-text p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 0;
             color: #d1d5db;
             font-size: 1.05rem;
             text-align: justify;
-            text-indent: 2rem;
+            text-indent: 0;
+            line-height: 1.8;
+        }
+
+        .discography-section {
+            margin: 40px 0;
+            background: rgba(255, 255, 255, 0.03);
+            padding: 25px 30px;
+            border-radius: 12px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .discography-section h3 {
+            color: var(--primary);
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-indent: 0;
+        }
+
+        .discography-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .discography-list li {
+            margin-bottom: 12px;
+            position: relative;
+            padding-left: 20px;
+            color: #e5e7eb;
+            font-size: 1rem;
+            line-height: 1.5;
+            text-align: left;
+        }
+
+        .discography-list li:last-child {
+            margin-bottom: 0;
+        }
+
+        .discography-list li::before {
+            content: '•';
+            color: var(--accent);
+            position: absolute;
+            left: 0;
+            top: 0; /* Aligns bullet with first line */
+            font-weight: bold;
+        }
+
+        .award-highlight {
+            color: #fbbf24; /* Color dorado para resaltar los premios */
+            font-weight: 600;
         }
 
         /* Gallery */
@@ -459,7 +511,8 @@
         }
 
         .toggle-btn:hover {
-            background: #4338ca; /* Darker shade for better contrast */
+            background: #4338ca;
+            /* Darker shade for better contrast */
             transform: translateY(-2px);
             box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
         }
@@ -468,16 +521,16 @@
             display: none;
             margin-top: 30px;
         }
-        
+
         .contact-email {
-            color: #6b7280; 
-            font-size: 1.1rem; 
-            margin-top: 20px; 
+            color: #6b7280;
+            font-size: 1.1rem;
+            margin-top: 20px;
             text-align: center;
         }
-        
+
         .footer-text {
-            color: #6b7280; 
+            color: #6b7280;
             font-size: 0.8rem;
         }
     </style>
@@ -583,55 +636,65 @@
             </div>
         </section>
 
-        <p><strong>Nadia Szachniuk.</strong></p>
+        <!-- Tab: Bio -->
+        <section id="bio" class="tab-content">
+            <div class="bio-container">
+                <div class="bio-text">
+                    <p><strong>Nadia Szachniuk.</strong></p>
 
-        <p>Oriunda de Salta, Argentina. Reside entre su ciudad natal y la ciudad de Buenos Aires.</p>
+                    <p>Oriunda de Salta, Argentina. Reside entre su ciudad natal y la ciudad de Buenos Aires.</p>
+                    <p>Presenta una amplia trayectoria como cantante solista tanto en el ámbito de la música popular
+                        comoen el académico lírico.</p>
 
-        <p>Presenta una amplia trayectoria como cantante solista tanto en el ámbito de la música popular como en el
-            académico lírico.</p>
+                    <p>Es Musicoterapeuta en prevención de la Salud (USAL, 2004). Estudió la Tecnicatura en Música
+                        Antigua con
+                        orientación en Canto (Conservatorio Manuel de Falla, 2006–2011).</p>
 
-        <p>Es Musicoterapeuta en prevención de la Salud (USAL, 2004). Estudió la Tecnicatura en Música Antigua con
-            orientación en Canto (Conservatorio Manuel de Falla, 2006–2011).</p>
+                    <p>Estudió canto particular con diversos profesores desde 1999 hasta la actualidad. Realizó estudios
+                        de
+                        audioperceptiva (MMCA), composición, improvisación, percusión, técnicas corporales y danzas.</p>
 
-        <p>Estudió canto particular con diversos profesores desde 1999 hasta la actualidad. Realizó estudios de
-            audioperceptiva (MMCA), composición, improvisación, percusión, técnicas corporales y danzas.</p>
+                    <p>Formó parte del Coro Nacional de Jóvenes desde el año 2004 al 2019. Integró numerosos coros y
+                        agrupaciones
+                        musicales a lo largo de más de 30 años, entre ellos: Balkan Spice, Nonsense Ensamble Vocal de
+                        Solistas, Dúo
+                        Eva y Nadia, Coro Ars Nova Salta, Coro Trilce, Orfeón de Buenos Aires, Ars Subtilis, Ronda,
+                        entre otros.</p>
 
-        <p>Formó parte del Coro Nacional de Jóvenes desde el año 2004 al 2019. Integró numerosos coros y agrupaciones
-            musicales a lo largo de más de 30 años, entre ellos: Balkan Spice, Nonsense Ensamble Vocal de Solistas, Dúo
-            Eva y Nadia, Coro Ars Nova Salta, Coro Trilce, Orfeón de Buenos Aires, Ars Subtilis, Ronda, entre otros.</p>
+                    <p>Realiza giras de conciertos y workshops nacionales e internacionales desde el año 2017.</p>
 
-        <p>Realiza giras de conciertos y workshops nacionales e internacionales desde el año 2017.</p>
+                    <p>Se desempeña como docente de Canto en la Licenciatura y la Diplomatura de Música Argentina de la
+                        UNSAM desde
+                        el año 2016 hasta la actualidad, y también es docente particular desde el año 2005.</p>
 
-        <p>Se desempeña como docente de Canto en la Licenciatura y la Diplomatura de Música Argentina de la UNSAM desde
-            el año 2016 hasta la actualidad, y también es docente particular desde el año 2005.</p>
+                    <div class="discography-section">
+                        <h3>Discografía y premios:</h3>
+                        <ul class="discography-list">
+                            <li><strong>Vidala</strong> (2011), Dúo Eva y Nadia — <span class="award-highlight">Premio Gardel Mejor Nuevo Artista de Folklore (2012).</span></li>
+                            <li><strong>Nonsense</strong> (2012), Ensamble Vocal de Solistas de música contemporánea.</li>
+                            <li><strong>Luna Atrás</strong> (2016), primer disco solista.</li>
+                            <li><strong>Puente y Folklore</strong> (2019), junto a Seva Castro.</li>
+                            <li><strong>Vidala en mi zamba</strong> (2021), Dúo Eva y Nadia — <span class="award-highlight">Premio Mejor Álbum Grupo de Folklore (2022)</span> y <span class="award-highlight">Premio Mercedes Sosa “Mejor Álbum de Folklore Tradicional” (2023).</span></li>
+                            <li><strong>Falú, por Nadia y Juan</strong> (2022), junto a Juan Falú.</li>
+                            <li><strong>Secretos en la memoria</strong> (2023), junto a Ariel Abramovich (laúd).</li>
+                            <li><strong>Hasta que aclare</strong> (2025), Dúo Eva y Nadia.</li>
+                        </ul>
+                    </div>
 
-        <p><strong>Discografía y premios:</strong></p>
-
-        <p><strong>Vidala</strong> (2011), Dúo Eva y Nadia — <strong>Premio Gardel Mejor Nuevo Artista de
-                Folklore</strong> (2012).</p>
-
-        <p><strong>Nonsense</strong> (2012), Ensamble Vocal de Solistas de música contemporánea.</p>
-
-        <p><strong>Luna Atrás</strong> (2016), primer disco solista.</p>
-
-        <p><strong>Puente y Folklore</strong> (2019), junto a Seva Castro.</p>
-
-        <p><strong>Vidala en mi zamba</strong> (2021), Dúo Eva y Nadia — <strong>Premio Mejor Álbum Grupo de
-                Folklore</strong> (2022) y <strong>Premio Mercedes Sosa “Mejor Álbum de Folklore Tradicional”</strong>
-            (2023).</p>
-
-        <p><strong>Falú, por Nadia y Juan</strong> (2022), junto a Juan Falú.</p>
-
-        <p><strong>Secretos en la memoria</strong> (2023), junto a Ariel Abramovich (laúd).</p>
-
-        <p><strong>Hasta que aclare</strong> (2025), Dúo Eva y Nadia.</p>
-
-        <p>Como solista ha compartido escenario y ha colaborado con diversos artistas nacionales e internacionales como
-            Dominic Miller (guitarrista de Sting), Juan Quintero, Juan Falú, Lisandro Aristimuño, Tonolec, Marcelo
-            Moguilevsky, César Lerner, Facundo Guevara, La Bomba de Tiempo, Orquesta Sinfónica de Salta, Diego Rolón,
-            Tiki Mariano Cantero, La Cangola Trunca, Nuno Aroso, Será Arrebol, Martin Bruhn, Víctor Torres, Susanna
-            Moncayo, Juan Manuel Quintana, Federico Ciancio, Susana Travassos, Numen Cuarteto de Cuerdas, entre otros.
-        </p>
+                    <p>Como solista ha compartido escenario y ha colaborado con diversos artistas nacionales e
+                        internacionales como
+                        Dominic Miller (guitarrista de Sting), Juan Quintero, Juan Falú, Lisandro Aristimuño, Tonolec,
+                        Marcelo
+                        Moguilevsky, César Lerner, Facundo Guevara, La Bomba de Tiempo, Orquesta Sinfónica de Salta,
+                        Diego Rolón,
+                        Tiki Mariano Cantero, La Cangola Trunca, Nuno Aroso, Será Arrebol, Martin Bruhn, Víctor Torres,
+                        Susanna
+                        Moncayo, Juan Manuel Quintana, Federico Ciancio, Susana Travassos, Numen Cuarteto de Cuerdas,
+                        entre otros.
+                    </p>
+                </div>
+            </div>
+        </section>
 
 
         <!-- Tab: Galería -->
