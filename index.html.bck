@@ -1,0 +1,956 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests">
+    <script>
+        if (window.location.protocol === 'http:' && window.location.hostname !== 'localhost' && window.location.hostname !== '127.0.0.1') {
+            window.location.href = window.location.href.replace('http:', 'https:');
+        }
+    </script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nadia Szachniuk</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Professional Portfolio Design 2025 */
+
+        :root {
+            --bg-dark: #0f0f13;
+            --bg-panel: #181820;
+            --primary: #a5b4fc;
+            --accent: #6366f1;
+            --text-main: #f3f4f6;
+            --text-muted: #9ca3af;
+            --nav-height: 70px;
+            --container-width: 1100px;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-dark);
+            background-image: radial-gradient(circle at 50% 0%, #2a2a35 0%, var(--bg-dark) 70%);
+            color: var(--text-main);
+            line-height: 1.6;
+            min-height: 100vh;
+            padding-top: var(--nav-height);
+            /* Space for fixed nav */
+        }
+
+        /* Navigation */
+        .main-nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: var(--nav-height);
+            background: rgba(15, 15, 19, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            z-index: 1000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+        }
+
+        .nav-container {
+            width: 100%;
+            max-width: var(--container-width);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .nav-brand {
+            font-weight: 900;
+            font-size: 1.2rem;
+            letter-spacing: 2px;
+            color: #fff;
+            text-transform: uppercase;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-item {
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-muted);
+            transition: color 0.3s ease;
+            position: relative;
+            padding: 5px 0;
+            text-decoration: none;
+        }
+
+        .nav-item:hover,
+        .nav-item.active {
+            color: var(--primary);
+        }
+
+        .nav-item.active::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            box-shadow: 0 0 10px var(--accent);
+        }
+
+        /* Mobile Menu Button */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Main Content Area */
+        .content-wrapper {
+            max-width: var(--container-width);
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Sections */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        .tab-content {
+            display: block;
+            padding: 80px 0;
+            scroll-margin-top: var(--nav-height);
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .tab-content.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Hero Section (Inicio) */
+        .hero-section {
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .hero-name {
+            font-size: clamp(3rem, 8vw, 6rem);
+            /* Responsive font size */
+            font-weight: 900;
+            line-height: 1;
+            letter-spacing: -2px;
+            margin-bottom: 10px;
+            background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-transform: uppercase;
+        }
+
+        .hero-subtitle {
+            font-size: 1.2rem;
+            letter-spacing: 6px;
+            color: var(--text-muted);
+            margin-bottom: 50px;
+            text-transform: uppercase;
+        }
+
+        .hero-image-container {
+            width: 100%;
+            max-width: 500px;
+            margin: 0 auto;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
+            position: relative;
+        }
+
+        .hero-image {
+            width: 100%;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+
+        .hero-image:hover {
+            transform: scale(1.02);
+        }
+
+        /* Sections General */
+        .section-title {
+            font-size: 2rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 40px;
+            color: #fff;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-title::after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 3px;
+            background: var(--accent);
+            margin: 10px auto 0;
+            border-radius: 2px;
+        }
+
+        /* Music Grid */
+        .music-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 50px;
+        }
+
+        .video-card {
+            background: var(--bg-panel);
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+            transition: transform 0.3s ease;
+        }
+
+        .video-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .video-card iframe {
+            width: 100%;
+            aspect-ratio: 16/9;
+            border: none;
+        }
+
+        /* Bio Text */
+        .bio-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--bg-panel);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .bio-text p {
+            margin-bottom: 1.5rem;
+            color: #d1d5db;
+            font-size: 1.05rem;
+        }
+
+        /* Gallery */
+        .gallery-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery-item {
+            aspect-ratio: 1;
+            overflow: hidden;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        .gallery-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s ease;
+        }
+
+        .gallery-item:hover img {
+            transform: scale(1.1);
+        }
+
+        /* Press */
+        .press-grid {
+            display: grid;
+            gap: 30px;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        .press-card {
+            background: var(--bg-panel);
+            padding: 30px;
+            border-radius: 16px;
+            border-left: 4px solid var(--accent);
+        }
+
+        .press-images-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .press-image-item {
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            aspect-ratio: 3/4;
+            background: var(--bg-panel);
+        }
+
+        .press-image-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .press-image-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .press-image-item:hover img {
+            opacity: 1;
+        }
+
+        .press-quote {
+            font-style: italic;
+            font-size: 1.1rem;
+            color: #e5e7eb;
+            margin-bottom: 15px;
+        }
+
+        .press-author {
+            font-weight: 700;
+            color: var(--primary);
+        }
+
+        /* Footer */
+        .main-footer {
+            background: #0a0a0c;
+            padding: 40px 0;
+            margin-top: 60px;
+            text-align: center;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            padding: 10px 20px;
+            border-radius: 30px;
+            background: rgba(255, 255, 255, 0.05);
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            background: var(--accent);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .nav-links {
+                position: fixed;
+                top: var(--nav-height);
+                left: 0;
+                width: 100%;
+                background: var(--bg-panel);
+                flex-direction: column;
+                padding: 20px;
+                gap: 15px;
+                border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+                transform: translateY(-150%);
+                transition: transform 0.3s ease;
+                z-index: 999;
+            }
+
+            .nav-links.active {
+                transform: translateY(0);
+            }
+
+            .nav-item {
+                width: 100%;
+                text-align: center;
+                padding: 15px;
+                border-radius: 8px;
+            }
+
+            .nav-item:hover {
+                background: rgba(255, 255, 255, 0.05);
+            }
+
+            .hero-name {
+                font-size: 3.5rem;
+            }
+
+            .content-wrapper {
+                padding: 0 15px;
+            }
+
+            .bio-container {
+                padding: 25px;
+            }
+        }
+
+        /* Utility Classes */
+        .spotify-embed {
+            border-radius: 12px;
+            width: 100%;
+            height: 152px;
+            border: 0;
+        }
+
+        .toggle-btn-container {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .toggle-btn {
+            padding: 10px 30px;
+            background: var(--accent);
+            color: white;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+        }
+
+        .toggle-btn:hover {
+            background: var(--primary);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+        }
+
+        .hidden-music {
+            display: none;
+            margin-top: 30px;
+        }
+    </style>
+
+</head>
+
+<body>
+    <!-- Navigation -->
+    <nav class="main-nav">
+        <div class="nav-container">
+            <a href="#inicio" class="nav-brand">NADIA SZACHNIUK</a>
+            <button class="mobile-menu-btn" onclick="toggleMenu()">☰</button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#inicio" class="nav-item active" onclick="closeMenu()">Inicio</a></li>
+                <li><a href="#musica" class="nav-item" onclick="closeMenu()">Música</a></li>
+                <li><a href="#bio" class="nav-item" onclick="closeMenu()">Bio</a></li>
+                <li><a href="#galeria" class="nav-item" onclick="closeMenu()">Galería</a></li>
+                <li><a href="#prensa" class="nav-item" onclick="closeMenu()">Prensa</a></li>
+                <li><a href="#contacto" class="nav-item" onclick="closeMenu()">Contacto</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="content-wrapper">
+
+        <!-- Tab: Inicio -->
+        <section id="inicio" class="tab-content active">
+            <div class="hero-section">
+                <h1 class="hero-name">NADIA SZACHNIUK</h1>
+                <div class="hero-subtitle">CANTANTE ARGENTINA</div>
+                <div class="hero-image-container">
+                    <img src="MG5693.jpeg" alt="Nadia Szachniuk" class="hero-image">
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab: Música -->
+        <section id="musica" class="tab-content">
+            <h2 class="section-title">VIDEOS</h2>
+            <div class="music-grid" id="videos-grid">
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/kL5U-YH_Byk" title="Video 1"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/tMMCeBrFan4" title="Video 2"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+                <div class="video-card">
+                    <iframe src="https://www.youtube.com/embed/tj9GQIvwSuU" title="Video 3"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div id="more-videos" class="music-grid hidden-music"></div>
+
+            <div class="toggle-btn-container" id="toggle-videos-container">
+                <button id="toggle-videos-btn" onclick="toggleSection('more-videos', 'toggle-videos-btn', 'grid')"
+                    class="toggle-btn">VER MÁS</button>
+            </div>
+
+            <h2 class="section-title">DISCOGRAFÍA</h2>
+            <div class="music-grid">
+
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/17duyDIiffzfIh4PSnnnCa?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/1cQcVS1ePVnHSmp7rmpLMW?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+            </div>
+
+            <div id="more-music" class="music-grid hidden-music">
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/4JZpyxmyKp6po5ad4bjByu?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/11ByNDrTfLRrx07cEBpJ4R?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/5TLlFkrDTJpvBucWV7icBb?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/33Dqfo9SDXrlAF2Pr4ZfFo?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/7oOih0r52QVW8OkhWRQIMz?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/4acpxYd66Za97IkiYfr9O8?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/5Umesasx0mJOV8ilndrzKP?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/0v9KEcxK5MUBDBxx5qfwlC?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/5sOSmowhnXWxTTVUGpxQeh?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/3PcWCgYBjH3h91fiyeja9P?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+                <iframe class="spotify-embed"
+                    src="https://open.spotify.com/embed/album/3GRxBAl1vrQU9U5vsmzpk6?utm_source=generator"
+                    allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
+            </div>
+
+            <div class="toggle-btn-container">
+                <button id="toggle-music-btn" onclick="toggleMusic()" class="toggle-btn">VER MÁS</button>
+            </div>
+        </section>
+
+        <!-- Tab: Bio -->
+        <section id="bio" class="tab-content">
+            <h2 class="section-title">BIOGRAFÍA</h2>
+            <div class="bio-container">
+                <div class="bio-text">
+                    <p>Oriunda de Salta, y con 20 años de residencia en Buenos Aires, se dedica al canto desde muy
+                        joven. Presenta una amplia trayectoria como cantante solista, tanto en el ámbito popular como en
+                        el lírico. Es Musicoterapeuta en prevención de la salud (USAL 2004), y estudió la Tecnicatura en
+                        Música Antigua con orientación en Canto.</p>
+                    <p>Formó parte del Coro Nacional de Jóvenes desde el año 2004 hasta el 2019, perteneciente a los
+                        cuerpos artísticos estables y profesionales de la Nación, e integró numerosas agrupaciones
+                        vocales y corales.</p>
+                    <p>Ganó el Premio Gardel 2012 “Mejor Álbum Nuevo Artista de Folklore 2012” con el disco “Vidala”,
+                        grabado a dúo con Eva Sola, con la participación de Juan Falú y Facundo Guevara.</p>
+                    <p>En 2016 grabó su primer disco solista “Luna Atrás”, junto a Bruno Moguilevsky, Alejandro
+                        Starosielski, Marcelo Moguilevsky, Facundo Guevara, Santiago Segret, Ignacio Vidal.</p>
+                    <p>En 2019 grabó “Puente” y “Folklore Uno”, su nuevo material en formato audiovisual compuesto y
+                        grabado durante una residencia artística en Portugal (Musiberia).</p>
+                    <p>En 2021 grabó el segundo disco del dúo Eva y Nadia: “Vidala en mi zamba” con el que también ganó
+                        el Premio Gardel Mejor Grupo de Folklore 2022.</p>
+                    <p>En 2022 editó el disco “Falú, por Nadia y Juan”, junto a Juan Falú.</p>
+                    <p>Cada año brinda conciertos y seminarios de canto, canto con caja y música argentina, tanto en el
+                        ámbito nacional como internacional (Brasil, Europa, África, Canadá y Estados Unidos).</p>
+                    <p>Se desempeña como docente particular de canto desde el 2007 y como docente de Canto de la
+                        Licenciatura de Música Argentina en la Universidad Nacional de San Martín (UNSAM) desde el 2016.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tab: Galería -->
+        <section id="galeria" class="tab-content">
+            <h2 class="section-title">GALERÍA</h2>
+            <div class="gallery-grid" id="gallery-grid"></div>
+            <div class="gallery-grid hidden-music" id="more-gallery"></div>
+
+            <div class="toggle-btn-container" id="toggle-gallery-container">
+                <button id="toggle-gallery-btn" onclick="toggleSection('more-gallery', 'toggle-gallery-btn', 'grid')"
+                    class="toggle-btn">VER MÁS</button>
+            </div>
+        </section>
+
+        <!-- Tab: Prensa -->
+        <section id="prensa" class="tab-content">
+            <h2 class="section-title">PRENSA</h2>
+            <div class="press-grid">
+                <div class="press-card">
+                    <p class="press-quote">"Su música es, por suerte, inclasificable... Parte del atractivo de Luna
+                        atrás, su notable segundo disco, tiene que ver con su voz, desde ya. Con su fraseo expresivo y
+                        sin amaneramiento."</p>
+                    <p class="press-author">Diego Fischerman. Página/12</p>
+                </div>
+                <div class="press-card">
+                    <p class="press-quote">"La interpretación de Szachniuk es exquisita, explora todos los matices
+                        posibles y se mueve con igual maestría entre el canto lírico, el jazz y el canto popular."</p>
+                    <p class="press-author">Daniel Hofer. Hecho en Bs. As.</p>
+                </div>
+                <div class="press-card">
+                    <p class="press-quote">"Pocos secretos del canto están cerrados a Nadia Szachniuk."</p>
+                    <p class="press-author">Patricio Féminis. Clarín</p>
+                </div>
+                <div class="press-card">
+                    <p class="press-quote">"Pletórico de matices, Luna Atrás se desliza con destreza entre lo académico
+                        y lo popular en la voz de una cantante que ha sabido estudiar y macerar las formas de cada
+                        especie musical."</p>
+                    <p class="press-author">Télam</p>
+                </div>
+            </div>
+
+            <div class="press-images-grid" id="press-images-grid"></div>
+            <div class="press-images-grid hidden-music" id="more-press-images"></div>
+
+            <div class="toggle-btn-container" id="toggle-press-container">
+                <button id="toggle-press-btn"
+                    onclick="toggleSection('more-press-images', 'toggle-press-btn', 'grid')" class="toggle-btn">VER
+                    MÁS</button>
+            </div>
+        </section>
+
+        <!-- Tab: Contacto -->
+        <section id="contacto" class="tab-content">
+            <h2 class="section-title">CONTACTO</h2>
+            <div class="social-links">
+                <a href="https://www.instagram.com/nadia_szachniuk/" target="_blank" class="social-btn">Instagram</a>
+                <a href="https://open.spotify.com/user/21gmjoxn4urjyytfggtwxcsey" target="_blank"
+                    class="social-btn">Spotify</a>
+                <a href="https://www.facebook.com/nadia.szachniuk" target="_blank" class="social-btn">Facebook</a>
+                <a href="https://www.youtube.com/user/nadiaszachniuk/featured" target="_blank"
+                    class="social-btn">YouTube</a>
+                <a href="https://linktr.ee/nadiaszach" target="_blank" class="social-btn">Linktree</a>
+            </div>
+            <p style="color: #6b7280; font-size: 1.1rem; margin-top: 20px; text-align: center;">nadiaszachniuk@gmail.com
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="main-footer">
+        <p style="color: #6b7280; font-size: 0.8rem;">&copy; 2025 Nadia Szachniuk. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        // Scroll Spy & Animation Logic
+        document.addEventListener('DOMContentLoaded', () => {
+            const sections = document.querySelectorAll('.tab-content');
+            const navItems = document.querySelectorAll('.nav-item');
+
+            const observerOptions = {
+                root: null,
+                rootMargin: '-20% 0px -60% 0px', // Trigger when section is near top
+                threshold: 0
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        // Add visible class for animation
+                        entry.target.classList.add('visible');
+
+                        // Update Nav
+                        navItems.forEach(item => {
+                            item.classList.remove('active');
+                            if (item.getAttribute('href').substring(1) === entry.target.id) {
+                                item.classList.add('active');
+                            }
+                        });
+                    }
+                });
+            }, observerOptions);
+
+            sections.forEach(section => {
+                observer.observe(section);
+            });
+
+            renderSplitImageGrid('gallery-grid', 'more-gallery', galleryImages, 'gallery', 3);
+            renderSplitImageGrid('press-images-grid', 'more-press-images', pressImages, 'press', 3);
+
+            initToggleVisibility('more-gallery', 'toggle-gallery-btn');
+            initToggleVisibility('more-press-images', 'toggle-press-btn');
+            initToggleVisibility('more-videos', 'toggle-videos-btn');
+        });
+
+        // Mobile Menu Toggle
+        function toggleMenu() {
+            document.getElementById('navLinks').classList.toggle('active');
+        }
+
+        function closeMenu() {
+            document.getElementById('navLinks').classList.remove('active');
+        }
+
+        // Gallery / Press Data
+        const galleryImages = [
+            'infoDRIVE/FOTOS/_MG_8382.jpg',
+            'infoDRIVE/FOTOS/A NADIA Y SEVA 8 ph Silvia katz.jpg',
+            'infoDRIVE/FOTOS/PH @elhombredulce NADIA SZACHNIUK 1-42.jpg',
+            'infoDRIVE/FOTOS/Facundo Nadia Eva y Juan - foto Alejandro Ahuerma.jpg',
+            'infoDRIVE/FOTOS/FOTO MOGUI 1.jpeg',
+            '1.avif',
+            '2.avif',
+            '3.avif',
+            '4.avif',
+            '5.avif',
+            '6.avif',
+
+
+            'infoDRIVE/FOTOS/08-06-2022 Falú - por Nadia Szachniuk y Juan Falú - fotos Fede Kaplun-36.jpg',
+            'infoDRIVE/FOTOS/101R.jpg',
+            'infoDRIVE/FOTOS/2023.10.12 - Peña - Lyon.36.JPG',
+            'infoDRIVE/FOTOS/2023.10.12 - Peña - Lyon.52.JPG',
+            'infoDRIVE/FOTOS/2023.10.12 - Peña - Lyon.91.JPG',
+            'infoDRIVE/FOTOS/267669_452233738153269_997037153_n.jpg',
+            'infoDRIVE/FOTOS/316787_257325494310762_435070379_n.jpg',
+            'infoDRIVE/FOTOS/41005_119543698096213_119539074763342_119190_531122_n.jpg',
+            'infoDRIVE/FOTOS/414309_3928175362082_478216662_o.jpg',
+            'infoDRIVE/FOTOS/481525_10151187486322123_398983405_n.jpg',
+            'infoDRIVE/FOTOS/547046_422932811104758_584021923_n.jpg',
+            'infoDRIVE/FOTOS/6994_4989322173727_1498845406_n.jpg',
+            'infoDRIVE/FOTOS/7.jpg',
+
+            'infoDRIVE/FOTOS/c leon gieco y ma pau.jpg',
+            'infoDRIVE/FOTOS/Captura de pantalla 2020-12-23 a las 6.36.40 p.m..png',
+            'infoDRIVE/FOTOS/con duratierra.jpg',
+            'infoDRIVE/FOTOS/conexiones c cabrera mus int 2015.jpg',
+            'infoDRIVE/FOTOS/conexiones mus int 15 b.jpg',
+            'infoDRIVE/FOTOS/DSC_0018_InPixio.jpg',
+            'infoDRIVE/FOTOS/EDIT Bord M y n_6.jpg',
+            'infoDRIVE/FOTOS/Estreno-CETC-Foto-Maximo-Parpagnoli_CLAIMA20150515_0228_28.jpg',
+
+
+            'infoDRIVE/FOTOS/Foto Nadia Szachniuk Trío Luna Atrás.JPG',
+            'infoDRIVE/FOTOS/Foto trío LA 03.jpg',
+            'infoDRIVE/FOTOS/ilo 2.jpg',
+            'infoDRIVE/FOTOS/Ilo viendo sesión 03.jpg',
+            'infoDRIVE/FOTOS/IMG_4477.JPG',
+            'infoDRIVE/FOTOS/la madrugada foto los tres.jpg',
+            'infoDRIVE/FOTOS/La Roja04.jpg',
+            'infoDRIVE/FOTOS/llena de grosos mus int.jpg',
+            'infoDRIVE/FOTOS/mint en camarines.jpg',
+            'infoDRIVE/FOTOS/mint foto.jpg',
+            'infoDRIVE/FOTOS/Nadia Szachniuk y Juan Falú - PH_ Fede Kaplun 10.jpg',
+            'infoDRIVE/FOTOS/Nadia Szachniuk y Juan Falú - PH_ Fede Kaplun 11.jpg',
+            'infoDRIVE/FOTOS/Nadia Szachniuk y Juan Falú - PH_ Fede Kaplun 8.jpg',
+
+            'infoDRIVE/FOTOS/Ph Javier Perez Bassi O.jpg',
+            'infoDRIVE/FOTOS/Ph_ Fernando Aramayo • H.jpg',
+            'infoDRIVE/FOTOS/salta.jpg',
+            'infoDRIVE/FOTOS/WhatsApp Image 2021-01-10 at 16.57.01.jpeg',
+            'infoDRIVE/FOTOS/_16A4220.jpg',
+
+        ];
+        const pressImages = [
+            'prensa/12342.avif',
+            'prensa/e22eec_1fe26c91c95143b59ef714ac15cb6f5b~mv2_d_1373_1882_s_2.avif',
+            'prensa/e22eec_32aee9f01594f7bfe4118245bca9ea34.avif',
+            'prensa/e22eec_3d14f8d9f3094a939ae971be79967ed5~mv2_d_2230_1515_s_2.avif',
+            'prensa/e22eec_65c59508321af12b51094327354271ba.avif',
+            'prensa/e22eec_69253b3f011e4ab9ab223533d51a0a02~mv2.avif',
+            'prensa/e22eec_94d8d76d019546f7bf9a7bee46d0989b~mv2_d_2232_1682_s_2.avif',
+            'prensa/e22eec_9dc1f6ea209844b9beb06b9f53c9c968~mv2.avif',
+            'prensa/e22eec_a9c91c8f3399bd1e320da130cbfa1c00.avif',
+            'prensa/e22eec_bfd46cbefd724c099859a9bbebf6cd07~mv2_d_1537_2048_s_2.avif',
+            'prensa/e22eec_bffa5d87ecc94212996d904a84b47289~mv2.avif',
+            'prensa/e22eec_c2edaaa2a435488e89439acfae0098d9~mv2_d_1700_2338_s_2.avif',
+            'prensa/e22eec_cac62a41d83c4f5684cc06579e0239e5~mv2_d_1700_2338_s_2.avif',
+            'prensa/e22eec_ceb2791a106e47249de6b64d5d05a391~mv2_d_1205_1403_s_2.avif',
+            'prensa/e22eec_cf26352545e346869946b65ca3e77092~mv2.avif',
+            'prensa/e22eec_d398df7eaa57443e905548ec5a0d9be0~mv2.avif',
+            'prensa/e22eec_d819ac021a4f4cd99b6dd752a5716354~mv2_d_1502_2048_s_2.avif',
+            'prensa/e22eec_dfedeff4c0434b2eb4648e1b45aba434~mv2.avif',
+            'prensa/e22eec_e4115060915642bbafaa4bd48c167991~mv2.avif',
+            'prensa/e22eec_e961d77c3609482bb3f5f7d299e59413~mv2.avif',
+
+            // Nuevas imágenes desde infoDRIVE/PRENSA (copiadas a /prensa)
+            'prensa/Captura de Pantalla 2025-12-14 a la(s) 15.48.40.png',
+            'prensa/Captura de Pantalla 2025-12-14 a la(s) 15.49.55.png',
+            'prensa/Captura de Pantalla 2025-12-14 a la(s) 16.07.31.png',
+            'prensa/Captura de Pantalla 2025-12-14 a la(s) 16.10.57.png',
+            'prensa/Captura de Pantalla 2025-12-14 a la(s) 16.12.41.png',
+            'prensa/Captura de Pantalla 2025-12-14 a la(s) 16.37.22.png',
+            'prensa/Captura de Pantalla 2025-12-14 a la(s) 16.43.10.png',
+            'prensa/Captura de Pantalla 2025-12-14 a la(s) 16.43.40.png',
+            'prensa/Captura de Pantalla 2025-12-14 a la(s) 16.46.02.png',
+            'prensa/Captura de Pantalla 2025-12-14 a la(s) 16.47.04.png',
+            'prensa/Captura de Pantalla 2026-02-08 a la(s) 21.13.10.png',
+            'prensa/pagina12 hasta que aclare 2026.jpeg'
+        ];
+
+        let currentImages = [];
+        let currentImgIndex = 0;
+
+        function renderSplitImageGrid(containerId, moreContainerId, images, type, initialCount = 3) {
+            const container = document.getElementById(containerId);
+            const moreContainer = document.getElementById(moreContainerId);
+            if (!container || !moreContainer) return;
+
+            container.innerHTML = '';
+            moreContainer.innerHTML = '';
+
+            images.forEach((path, index) => {
+                const target = index < initialCount ? container : moreContainer;
+
+                const wrapper = document.createElement('div');
+                wrapper.className = type === 'press' ? 'press-image-item' : 'gallery-item';
+
+                const img = document.createElement('img');
+                img.src = encodeURI(path);
+                img.alt = type === 'press' ? 'Nota de prensa' : `Foto ${index + 1}`;
+                img.loading = 'lazy';
+                img.addEventListener('click', () => openModal(index, type));
+
+                wrapper.appendChild(img);
+                target.appendChild(wrapper);
+            });
+        }
+
+        function toggleSection(moreContainerId, buttonId, displayMode = 'grid') {
+            const more = document.getElementById(moreContainerId);
+            const btn = document.getElementById(buttonId);
+            if (!more || !btn) return;
+
+            const isHidden = window.getComputedStyle(more).display === 'none';
+
+            if (isHidden) {
+                more.style.display = displayMode;
+                btn.textContent = 'VER MENOS';
+            } else {
+                more.style.display = 'none';
+                btn.textContent = 'VER MÁS';
+            }
+        }
+
+        function initToggleVisibility(moreContainerId, buttonId) {
+            const more = document.getElementById(moreContainerId);
+            const btn = document.getElementById(buttonId);
+            if (!more || !btn) return;
+
+            const shouldShow = more.children.length > 0;
+            if (btn.parentElement) {
+                btn.parentElement.style.display = shouldShow ? 'block' : 'none';
+            } else {
+                btn.style.display = shouldShow ? 'inline-block' : 'none';
+            }
+
+            if (!shouldShow) {
+                more.style.display = 'none';
+            }
+        }
+
+        // Create Modal HTML dynamically if not exists
+        if (!document.getElementById('gallery-modal')) {
+            const modalHTML = `
+                <div id="gallery-modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.9); z-index:2000; justify-content:center; align-items:center;">
+                    <button onclick="closeModal()" style="position:absolute; top:20px; right:20px; background:none; border:none; color:white; font-size:3rem; cursor:pointer;">&times;</button>
+                    <button onclick="prevImage()" style="position:absolute; left:20px; background:none; border:none; color:white; font-size:3rem; cursor:pointer;">&#8249;</button>
+                    <img id="modal-img" src="" style="max-width:90%; max-height:90vh; border-radius:8px;">
+                    <button onclick="nextImage()" style="position:absolute; right:20px; background:none; border:none; color:white; font-size:3rem; cursor:pointer;">&#8250;</button>
+                </div>
+            `;
+            document.body.insertAdjacentHTML('beforeend', modalHTML);
+        }
+
+        function openModal(index, type) {
+            if (type === 'gallery') {
+                currentImages = galleryImages;
+            } else if (type === 'press') {
+                currentImages = pressImages;
+            }
+            currentImgIndex = index;
+            updateModalImage();
+            document.getElementById('gallery-modal').style.display = 'flex';
+        }
+
+        function closeModal() {
+            document.getElementById('gallery-modal').style.display = 'none';
+        }
+
+        function nextImage() {
+            currentImgIndex = (currentImgIndex + 1) % currentImages.length;
+            updateModalImage();
+        }
+
+        function prevImage() {
+            currentImgIndex = (currentImgIndex - 1 + currentImages.length) % currentImages.length;
+            updateModalImage();
+        }
+
+        function updateModalImage() {
+            document.getElementById('modal-img').src = encodeURI(currentImages[currentImgIndex]);
+        }
+
+        // Close on background click
+        document.getElementById('gallery-modal').addEventListener('click', function (e) {
+            if (e.target === this) closeModal();
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            if (document.getElementById('gallery-modal').style.display === 'flex') {
+                if (e.key === 'ArrowLeft') prevImage();
+                else if (e.key === 'ArrowRight') nextImage();
+                else if (e.key === 'Escape') closeModal();
+            }
+        });
+
+        // Toggle Music Logic
+        function toggleMusic() {
+            toggleSection('more-music', 'toggle-music-btn', 'grid');
+        }
+    </script>
+</body>
+
+</html>
