@@ -535,6 +535,89 @@
             color: #6b7280;
             font-size: 0.8rem;
         }
+
+        /* Teaching Section Styles */
+        .teaching-card {
+            background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, var(--bg-panel) 100%);
+            border-radius: 20px;
+            padding: 30px;
+            text-align: center;
+            max-width: 600px;
+            margin: 40px auto 0;
+            border: 1px solid var(--accent);
+            box-shadow: 0 0 20px rgba(99, 102, 241, 0.2);
+            backdrop-filter: blur(10px);
+        }
+
+        .teaching-card h3 {
+            color: white;
+            font-size: 1.5rem;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .teaching-card p {
+            color: var(--primary);
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        /* Fallback for blocked embeds */
+        .video-thumbnail-link {
+            display: block;
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/9;
+            background-color: #000;
+            overflow: hidden;
+        }
+
+        .video-thumbnail-link img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.9;
+            transition: transform 0.5s ease, opacity 0.5s ease;
+        }
+
+        .video-thumbnail-link:hover img {
+            transform: scale(1.05);
+            opacity: 0.6;
+        }
+
+        .play-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70px;
+            height: 70px;
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(5px);
+            border: 2px solid rgba(255, 255, 255, 0.8);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+        }
+
+        .play-overlay::after {
+            content: '';
+            width: 0;
+            height: 0;
+            border-left: 20px solid #fff;
+            border-top: 12px solid transparent;
+            border-bottom: 12px solid transparent;
+            margin-left: 5px;
+        }
+
+        .video-thumbnail-link:hover .play-overlay {
+            background: var(--accent);
+            border-color: var(--accent);
+            transform: translate(-50%, -50%) scale(1.1);
+        }
     </style>
 
 </head>
@@ -550,6 +633,7 @@
                 <li><a href="#musica" class="nav-item" onclick="closeMenu()">Música</a></li>
                 <li><a href="#bio" class="nav-item" onclick="closeMenu()">Bio</a></li>
                 <li><a href="#galeria" class="nav-item" onclick="closeMenu()">Galería</a></li>
+                <li><a href="#docencia" class="nav-item" onclick="closeMenu()">Docencia</a></li>
                 <li><a href="#prensa" class="nav-item" onclick="closeMenu()">Prensa</a></li>
                 <li><a href="#contacto" class="nav-item" onclick="closeMenu()">Contacto</a></li>
             </ul>
@@ -713,6 +797,27 @@
             <div class="toggle-btn-container" id="toggle-gallery-container">
                 <button id="toggle-gallery-btn" onclick="toggleSection('more-gallery', 'toggle-gallery-btn', 'grid')"
                     class="toggle-btn">VER MÁS</button>
+            </div>
+        </section>
+
+        <!-- Tab: Docencia -->
+        <section id="docencia" class="tab-content">
+            <h2 class="section-title">DOCENCIA</h2>
+
+            <div style="max-width: 800px; margin: 0 auto;">
+                <div class="video-card">
+                    <a href="https://youtu.be/8xX6t6-p0z0" target="_blank" class="video-thumbnail-link"
+                        aria-label="Ver video en YouTube">
+                        <img src="https://img.youtube.com/vi/8xX6t6-p0z0/maxresdefault.jpg"
+                            alt="Portada Video Docencia">
+                        <div class="play-overlay"></div>
+                    </a>
+                </div>
+            </div>
+
+            <div class="teaching-card">
+                <h3>Clases</h3>
+                <p>Grupales e Individuales</p>
             </div>
         </section>
 
