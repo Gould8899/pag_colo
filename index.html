@@ -25,6 +25,31 @@
             --text-muted: #9ca3af;
             --nav-height: 70px;
             --container-width: 1100px;
+            --card-radius: 16px;
+        }
+
+        /* Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: var(--bg-dark);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #333;
+            border-radius: 4px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+
+        /* Selection */
+        ::selection {
+            background: var(--accent);
+            color: #fff;
         }
 
         * {
@@ -41,7 +66,8 @@
             line-height: 1.6;
             min-height: 100vh;
             padding-top: var(--nav-height);
-            /* Space for fixed nav */
+            text-rendering: optimizeLegibility;
+            -webkit-font-smoothing: antialiased;
         }
 
         /* Navigation */
@@ -159,14 +185,14 @@
 
         .hero-name {
             font-size: clamp(3rem, 8vw, 6rem);
-            /* Responsive font size */
             font-weight: 900;
             line-height: 1;
             letter-spacing: -2px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
             background: linear-gradient(135deg, #fff 0%, #a5b4fc 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
+            background-clip: text;
             text-transform: uppercase;
         }
 
@@ -182,7 +208,7 @@
             width: 100%;
             max-width: 500px;
             margin: 0 auto;
-            border-radius: 20px;
+            border-radius: var(--card-radius);
             overflow: hidden;
             box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4);
             position: relative;
@@ -191,11 +217,11 @@
         .hero-image {
             width: 100%;
             display: block;
-            transition: transform 0.5s ease;
+            transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1);
         }
 
         .hero-image:hover {
-            transform: scale(1.02);
+            transform: scale(1.03);
         }
 
         /* Sections General */
@@ -209,6 +235,7 @@
             display: inline-block;
             left: 50%;
             transform: translateX(-50%);
+            letter-spacing: -0.5px;
         }
 
         .section-title::after {
@@ -231,7 +258,7 @@
 
         .video-card {
             background: var(--bg-panel);
-            border-radius: 16px;
+            border-radius: var(--card-radius);
             overflow: hidden;
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
             transition: transform 0.3s ease;
@@ -253,7 +280,7 @@
             margin: 0 auto;
             background: var(--bg-panel);
             padding: 40px;
-            border-radius: 20px;
+            border-radius: var(--card-radius);
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
 
@@ -271,7 +298,7 @@
             background: rgba(255, 255, 255, 0.03);
             padding: 25px 30px;
             border-radius: 12px;
-            border-left: 3px solid var(--accent);
+            border-left: 4px solid var(--accent);
         }
 
         .discography-section h3 {
@@ -309,13 +336,11 @@
             position: absolute;
             left: 0;
             top: 0;
-            /* Aligns bullet with first line */
             font-weight: bold;
         }
 
         .award-highlight {
             color: #fbbf24;
-            /* Color dorado para resaltar los premios */
             font-weight: 600;
         }
 
@@ -329,7 +354,7 @@
         .gallery-item {
             aspect-ratio: 1;
             overflow: hidden;
-            border-radius: 12px;
+            border-radius: var(--card-radius);
             cursor: pointer;
         }
 
@@ -355,8 +380,14 @@
         .press-card {
             background: var(--bg-panel);
             padding: 30px;
-            border-radius: 16px;
+            border-radius: var(--card-radius);
             border-left: 4px solid var(--accent);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .press-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
         }
 
         .press-images-grid {
@@ -367,7 +398,7 @@
         }
 
         .press-image-item {
-            border-radius: 12px;
+            border-radius: var(--card-radius);
             overflow: hidden;
             cursor: pointer;
             transition: transform 0.3s ease;
@@ -539,7 +570,7 @@
         /* Teaching Section Styles */
         .teaching-card {
             background: linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, var(--bg-panel) 100%);
-            border-radius: 20px;
+            border-radius: var(--card-radius);
             padding: 30px;
             text-align: center;
             max-width: 600px;
@@ -571,6 +602,7 @@
             aspect-ratio: 16/9;
             background-color: #000;
             overflow: hidden;
+            border-radius: var(--card-radius);
         }
 
         .video-thumbnail-link img {
@@ -730,7 +762,7 @@
 
                     <p>Oriunda de Salta, Argentina. Reside entre su ciudad natal y la ciudad de Buenos Aires.</p>
                     <p>Presenta una amplia trayectoria como cantante solista tanto en el ámbito de la música popular
-                        comoen el académico lírico.</p>
+                        como en el académico lírico.</p>
 
                     <p>Es Musicoterapeuta en prevención de la Salud (USAL, 2004). Estudió la Tecnicatura en Música
                         Antigua con
