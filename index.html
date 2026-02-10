@@ -514,6 +514,24 @@
             .bio-container {
                 padding: 25px;
             }
+
+            /* Sticky Button for Mobile */
+            .toggle-btn-container.sticky-active {
+                position: sticky;
+                bottom: 30px;
+                z-index: 100;
+                pointer-events: none;
+                margin-top: 0;
+            }
+
+            .toggle-btn-container.sticky-active .toggle-btn {
+                pointer-events: auto;
+                background: rgba(99, 102, 241, 0.95);
+                color: #fff;
+                box-shadow: 0 8px 32px rgba(0, 0, 0, 0.6);
+                backdrop-filter: blur(12px);
+                border-color: rgba(255, 255, 255, 0.2);
+            }
         }
 
         /* Utility Classes */
@@ -526,28 +544,58 @@
 
         .toggle-btn-container {
             text-align: center;
-            margin-top: 20px;
+            margin-top: 40px;
+            margin-bottom: 20px;
         }
 
         .toggle-btn {
-            padding: 10px 30px;
-            background: var(--accent);
-            color: white;
-            border: none;
-            border-radius: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 12px;
+            padding: 16px 40px;
+            background: rgba(99, 102, 241, 0.1);
+            color: var(--primary);
+            border: 1px solid var(--accent);
+            border-radius: 50px;
             cursor: pointer;
             font-weight: 700;
             font-size: 0.9rem;
-            letter-spacing: 1px;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px rgba(99, 102, 241, 0.3);
+            letter-spacing: 2px;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            backdrop-filter: blur(10px);
+            text-transform: uppercase;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            -webkit-tap-highlight-color: transparent;
         }
 
         .toggle-btn:hover {
-            background: #4338ca;
-            /* Darker shade for better contrast */
-            transform: translateY(-2px);
-            box-shadow: 0 6px 20px rgba(99, 102, 241, 0.5);
+            background: var(--accent);
+            color: #fff;
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(99, 102, 241, 0.4);
+            border-color: transparent;
+        }
+
+        .toggle-btn:active {
+            transform: translateY(1px);
+            box-shadow: 0 4px 10px rgba(99, 102, 241, 0.3);
+        }
+
+        .toggle-btn .arrow {
+            font-size: 1.2em;
+            transition: transform 0.4s ease;
+        }
+
+        .toggle-btn.expanded {
+            background: rgba(255, 255, 255, 0.05);
+            border-color: rgba(255, 255, 255, 0.2);
+            color: var(--text-muted);
+        }
+
+        .toggle-btn.expanded:hover {
+            background: var(--accent);
+            color: #fff;
         }
 
         .hidden-music {
@@ -697,7 +745,9 @@
 
             <div class="toggle-btn-container" id="toggle-videos-container">
                 <button id="toggle-videos-btn" onclick="toggleSection('more-videos', 'toggle-videos-btn', 'grid')"
-                    class="toggle-btn">VER MÁS</button>
+                    class="toggle-btn">
+                    VER MÁS <span class="arrow">▼</span>
+                </button>
             </div>
 
             <h2 class="section-title">DISCOGRAFÍA</h2>
@@ -750,7 +800,9 @@
             </div>
 
             <div class="toggle-btn-container">
-                <button id="toggle-music-btn" onclick="toggleMusic()" class="toggle-btn">VER MÁS</button>
+                <button id="toggle-music-btn" onclick="toggleMusic()" class="toggle-btn">
+                    VER MÁS <span class="arrow">▼</span>
+                </button>
             </div>
         </section>
 
@@ -828,7 +880,9 @@
 
             <div class="toggle-btn-container" id="toggle-gallery-container">
                 <button id="toggle-gallery-btn" onclick="toggleSection('more-gallery', 'toggle-gallery-btn', 'grid')"
-                    class="toggle-btn">VER MÁS</button>
+                    class="toggle-btn">
+                    VER MÁS <span class="arrow">▼</span>
+                </button>
             </div>
         </section>
 
@@ -885,8 +939,9 @@
 
             <div class="toggle-btn-container" id="toggle-press-container">
                 <button id="toggle-press-btn" onclick="toggleSection('more-press-images', 'toggle-press-btn', 'grid')"
-                    class="toggle-btn">VER
-                    MÁS</button>
+                    class="toggle-btn">
+                    VER MÁS <span class="arrow">▼</span>
+                </button>
             </div>
         </section>
 
@@ -1117,13 +1172,23 @@
             if (!more || !btn) return;
 
             const isHidden = window.getComputedStyle(more).display === 'none';
+            const container = btn.parentElement;
 
             if (isHidden) {
                 more.style.display = displayMode;
-                btn.textContent = 'VER MENOS';
+                btn.classList.add('expanded');
+                if (container) container.classList.add('sticky-active');
+
+                btn.innerHTML = 'VER MENOS <span class="arrow" style="display:inline-block; transform: rotate(180deg)">▼</span>';
             } else {
                 more.style.display = 'none';
-                btn.textContent = 'VER MÁS';
+                btn.classList.remove('expanded');
+                if (container) container.classList.remove('sticky-active');
+
+                btn.innerHTML = 'VER MÁS <span class="arrow" style="display:inline-block">▼</span>';
+
+                // Scroll suave para mantener contexto
+                btn.scrollIntoView({ behavior: 'smooth', block: 'center' });
             }
         }
 
