@@ -753,13 +753,13 @@
             <h2 class="section-title">DISCOGRAFÍA</h2>
             <div class="music-grid">
 
-                <iframe class="spotify-embed"
+                <iframe loading="lazy" class="spotify-embed"
                     src="https://open.spotify.com/embed/album/17duyDIiffzfIh4PSnnnCa?utm_source=generator"
                     allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
-                <iframe class="spotify-embed"
+                <iframe loading="lazy" class="spotify-embed"
                     src="https://open.spotify.com/embed/album/1cQcVS1ePVnHSmp7rmpLMW?utm_source=generator"
                     allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
-                <iframe class="spotify-embed"
+                <iframe loading="lazy" class="spotify-embed"
                     src="https://open.spotify.com/embed/album/33Dqfo9SDXrlAF2Pr4ZfFo?utm_source=generator"
                     allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
 
@@ -767,34 +767,34 @@
 
             <div id="more-music" class="music-grid hidden-music">
 
-                <iframe class="spotify-embed"
+                <iframe loading="lazy" class="spotify-embed"
                     src="https://open.spotify.com/embed/album/11ByNDrTfLRrx07cEBpJ4R?utm_source=generator"
                     allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
-                <iframe class="spotify-embed"
+                <iframe loading="lazy" class="spotify-embed"
                     src="https://open.spotify.com/embed/album/5TLlFkrDTJpvBucWV7icBb?utm_source=generator"
                     allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
-                <iframe class="spotify-embed"
+                <iframe loading="lazy" class="spotify-embed"
                     src="https://open.spotify.com/embed/album/4JZpyxmyKp6po5ad4bjByu?utm_source=generator"
                     allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
-                <iframe class="spotify-embed"
+                <iframe loading="lazy" class="spotify-embed"
                     src="https://open.spotify.com/embed/album/7oOih0r52QVW8OkhWRQIMz?utm_source=generator"
                     allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
-                <iframe class="spotify-embed"
+                <iframe loading="lazy" class="spotify-embed"
                     src="https://open.spotify.com/embed/album/4acpxYd66Za97IkiYfr9O8?utm_source=generator"
                     allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
-                <iframe class="spotify-embed"
+                <iframe loading="lazy" class="spotify-embed"
                     src="https://open.spotify.com/embed/album/5Umesasx0mJOV8ilndrzKP?utm_source=generator"
                     allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
-                <iframe class="spotify-embed"
+                <iframe loading="lazy" class="spotify-embed"
                     src="https://open.spotify.com/embed/album/0v9KEcxK5MUBDBxx5qfwlC?utm_source=generator"
                     allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
-                <iframe class="spotify-embed"
+                <iframe loading="lazy" class="spotify-embed"
                     src="https://open.spotify.com/embed/album/5sOSmowhnXWxTTVUGpxQeh?utm_source=generator"
                     allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
-                <iframe class="spotify-embed"
+                <iframe loading="lazy" class="spotify-embed"
                     src="https://open.spotify.com/embed/album/3PcWCgYBjH3h91fiyeja9P?utm_source=generator"
                     allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
-                <iframe class="spotify-embed"
+                <iframe loading="lazy" class="spotify-embed"
                     src="https://open.spotify.com/embed/album/3GRxBAl1vrQU9U5vsmzpk6?utm_source=generator"
                     allowfullscreen="" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture"></iframe>
             </div>
@@ -1003,7 +1003,7 @@
             // Initialize Lists with 4 visible items
             renderSplitImageGrid('gallery-grid', 'more-gallery', galleryImages, 'gallery', 4);
             renderSplitImageGrid('press-images-grid', 'more-press-images', pressImages, 'press', 4);
-            renderVideoGrid('videos-grid', 'more-videos', videoList, 4);
+            renderVideoGrid('videos-grid', 'more-videos', videoList, 3);
 
             initToggleVisibility('more-gallery', 'toggle-gallery-btn');
             initToggleVisibility('more-press-images', 'toggle-press-btn');
@@ -1021,9 +1021,18 @@
 
         // Data Sources
         const videoList = [
-            'https://www.youtube.com/embed/kL5U-YH_Byk',
+
+            'https://www.youtube.com/embed/s8wgOaU68gE',
+            'https://www.youtube.com/embed/mDeCRYsLXb0',
             'https://www.youtube.com/embed/tMMCeBrFan4',
-            'https://www.youtube.com/embed/tj9GQIvwSuU'
+            // 'https://www.youtube.com/embed/3a5HurYs4b0',
+            'https://www.youtube.com/embed/31fVZ7fbhWI',
+            'https://www.youtube.com/embed/LYMGbpfcsb0',
+            'https://www.youtube.com/embed/o6fG59ypqPY',
+            'https://www.youtube.com/embed/qM6bUE7L2Vo',
+            'https://www.youtube.com/embed/2GwTtKopFtI',
+            'https://www.youtube.com/embed/6TK56rtI5po',
+            'https://www.youtube.com/embed/kL5U-YH_Byk',
         ];
 
         const galleryImages = [
@@ -1158,7 +1167,7 @@
 
                 const iframe = document.createElement('iframe');
                 iframe.src = src;
-                iframe.allowMatch = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
+                iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share';
                 iframe.allowFullscreen = true;
 
                 card.appendChild(iframe);
